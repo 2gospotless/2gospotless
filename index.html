@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2GoSpotless Mobile Detailing — premium mobile auto detailing serving the Greater Toronto Area.">
+  <title>2GoSpotless | Mobile Detailing</title>
+  <link rel="icon" href="assets/2gospotless-logo.jpg">
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#111111;
+      --panel2:#171717;
+      --text:#f4f4f4;
+      --muted:#a8a8a8;
+      --yellow:#ffc21a;
+      --line:#292929;
+      --max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);color:var(--text);line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max),92%);margin:auto}
+    .topbar{
+      border-bottom:1px solid var(--line);font-size:.9rem;color:#d8d8d8;
+      padding:10px 0;text-align:center;background:#080808;
+    }
+    .topbar a{color:var(--yellow);font-weight:700}
+    nav{
+      position:sticky;top:0;z-index:20;background:rgba(11,11,11,.88);
+      backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .navin{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.04em}
+    .brand img{width:52px;height:52px;object-fit:cover;border-radius:12px}
+    .brand span{font-size:1.05rem}
+    .links{display:flex;gap:28px;align-items:center;color:#d0d0d0;font-weight:600;font-size:.94rem}
+    .links a:hover{color:var(--yellow)}
+    .navcta,.btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      background:var(--yellow);color:#080808;font-weight:900;border-radius:8px;
+      padding:13px 20px;border:1px solid var(--yellow);transition:.2s;
+    }
+    .navcta:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+    .menu{display:none;background:none;border:0;color:white;font-size:28px}
+
+    .hero{
+      min-height:calc(100vh - 124px);display:flex;align-items:center;
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 72% 38%,rgba(255,194,26,.16),transparent 30%),
+        radial-gradient(circle at 12% 80%,rgba(255,255,255,.06),transparent 28%),
+        linear-gradient(115deg,#080808 0%,#0e0e0e 55%,#121212 100%);
+    }
+    .hero:after{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(0,0,0,.5),transparent 60%);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;position:relative;z-index:1}
+    .eyebrow{color:var(--yellow);font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;margin-bottom:18px}
+    h1{font-size:clamp(3.2rem,7vw,6.8rem);line-height:.9;letter-spacing:-.065em;max-width:850px}
+    h1 em{font-style:normal;color:var(--yellow)}
+    .hero p{font-size:1.13rem;color:#c7c7c7;max-width:620px;margin:26px 0 32px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn.alt{background:transparent;color:white;border-color:#4a4a4a}
+    .btn.alt:hover{border-color:var(--yellow);color:var(--yellow)}
+    .hero-card{
+      min-height:440px;border:1px solid #303030;border-radius:24px;position:relative;overflow:hidden;
+      background:
+        linear-gradient(145deg,rgba(255,194,26,.2),transparent 38%),
+        repeating-linear-gradient(135deg,#171717 0,#171717 12px,#141414 12px,#141414 24px);
+      display:flex;align-items:flex-end;padding:28px;
+      box-shadow:0 30px 80px rgba(0,0,0,.45);
+    }
+    .hero-card:before{
+      content:"2G";position:absolute;font-size:18rem;font-weight:1000;line-height:1;
+      color:rgba(255,255,255,.035);right:-35px;top:30px;letter-spacing:-.1em;
+    }
+    .hero-badge{position:relative;z-index:1;border:1px solid #404040;background:rgba(0,0,0,.58);padding:20px;border-radius:16px;width:100%}
+    .hero-badge strong{font-size:1.45rem;display:block}
+    .hero-badge small{color:#b9b9b9}
+
+    section{padding:100px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:42px}
+    .section-head h2{font-size:clamp(2.2rem,5vw,4rem);letter-spacing:-.045em;line-height:.95}
+    .section-head p{max-width:500px;color:var(--muted)}
+    .yellow{color:var(--yellow)}
+
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#0e0e0e}
+    .stat{padding:28px;border-right:1px solid var(--line)}
+    .stat:last-child{border-right:0}
+    .stat b{font-size:2rem;display:block}
+    .stat span{color:var(--muted);font-size:.9rem}
+
+    .services{background:#0e0e0e}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{
+      border:1px solid var(--line);background:linear-gradient(180deg,#151515,#101010);
+      border-radius:18px;padding:28px;min-height:265px;display:flex;flex-direction:column;
+      transition:.25s;position:relative;overflow:hidden;
+    }
+    .service:hover{transform:translateY(-5px);border-color:#555}
+    .service.featured{border-color:rgba(255,194,26,.6);box-shadow:0 0 0 1px rgba(255,194,26,.08) inset}
+    .service .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:var(--yellow);font-weight:900;margin-bottom:14px}
+    .service h3{font-size:1.45rem;margin-bottom:8px}
+    .price{font-size:2rem;font-weight:950;margin-bottom:13px}
+    .service p{color:#aaa;font-size:.93rem}
+    .service .book{margin-top:auto;padding-top:20px;color:var(--yellow);font-weight:900}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .feature-box{border:1px solid var(--line);border-radius:22px;padding:34px;background:#111}
+    .feature-box h3{font-size:2rem;margin-bottom:14px}
+    .feature-box p{color:#b6b6b6}
+    .checks{display:grid;gap:14px;margin-top:25px}
+    .check{display:flex;gap:12px;align-items:flex-start}
+    .check i{font-style:normal;color:var(--yellow);font-weight:1000}
+
+    .gallery{display:grid;grid-template-columns:1.3fr .7fr .7fr;grid-auto-rows:210px;gap:14px}
+    .photo{
+      border:1px solid #2b2b2b;border-radius:18px;overflow:hidden;position:relative;
+      background:linear-gradient(135deg,#242424,#101010);
+      display:flex;align-items:end;padding:22px;
+    }
+    .photo:before{content:"YOUR WORK PHOTO";position:absolute;inset:0;display:grid;place-items:center;color:#505050;font-weight:1000;letter-spacing:.12em}
+    .photo span{position:relative;z-index:1;background:rgba(0,0,0,.7);border:1px solid #444;border-radius:999px;padding:7px 12px;font-size:.72rem}
+    .photo.tall{grid-row:span 2}
+
+    .reviews{background:#0e0e0e}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{border:1px solid var(--line);border-radius:18px;padding:28px;background:#121212}
+    .stars{color:var(--yellow);letter-spacing:3px;font-size:1.1rem}
+    .review p{color:#c6c6c6;margin:18px 0 24px}
+    .review b{font-size:.9rem}
+
+    .cta{
+      border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+      background:linear-gradient(120deg,#111 0%,#171717 50%,#0d0d0d 100%);
+    }
+    .cta-in{display:flex;justify-content:space-between;align-items:center;gap:30px}
+    .cta h2{font-size:clamp(2.5rem,6vw,5.2rem);line-height:.92;letter-spacing:-.05em}
+    .cta p{color:#aaa;margin-top:15px}
+
+    footer{padding:45px 0;background:#070707}
+    .footer-in{display:flex;justify-content:space-between;gap:30px;align-items:center}
+    .footer-left{display:flex;align-items:center;gap:14px}
+    .footer-left img{width:44px;height:44px;object-fit:cover;border-radius:10px}
+    .footer-left small{display:block;color:#777;margin-top:3px}
+    .social{display:flex;gap:18px;color:#bbb}
+    .social a:hover{color:var(--yellow)}
+
+    @media(max-width:900px){
+      .links{display:none}.menu{display:block}
+      .hero-grid,.split{grid-template-columns:1fr}
+      .hero-card{min-height:300px}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .service-grid,.review-grid{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .photo.tall{grid-row:span 1}
+      .cta-in{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:600px){
+      .navin{height:68px}.brand span{font-size:.9rem}
+      .hero{min-height:calc(100vh - 108px)}
+      section{padding:75px 0}
+      .service-grid,.review-grid,.gallery{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .stat{border-right:0!important;border-bottom:1px solid var(--line)!important}
+      .stat:last-child{border-bottom:0!important}
+      .hero-card{min-height:250px}
+      .actions .btn{width:100%}
+      .footer-in{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Mobile detailing across the <a href="#contact">Greater Toronto Area</a> · <a href="tel:+16474483869">647-448-3869</a></div>
+
+  <nav>
+    <div class="container navin">
+      <a class="brand" href="#">
+        <img src="assets/2gospotless-logo.jpg" alt="2GoSpotless logo">
+        <span>2GOSPOTLESS</span>
+      </a>
+      <div class="links">
+        <a href="#services">Services</a>
+        <a href="#why">Why us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <a class="navcta" href="https://2gospotless.setmore.com/" target="_blank" rel="noopener">BOOK NOW</a>
+      <button class="menu" aria-label="Open menu" onclick="document.querySelector('.mobile-links').classList.toggle('show')">☰</button>
+    </div>
+    <div class="mobile-links" style="display:none;padding:0 4%;padding-bottom:18px;background:#0b0b0b;border-top:1px solid #222">
+      <a href="#services">Services</a><br>
+      <a href="#why">Why us</a><br>
+      <a href="#gallery">Gallery</a><br>
+      <a href="#reviews">Reviews</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Mobile detailing · Greater Toronto Area</div>
+        <h1>YOUR CAR.<br><em>SPOTLESS.</em></h1>
+        <p>Premium mobile auto detailing brought directly to you. Interior deep cleans, exterior maintenance, paint correction and protection services — all without the shop wait.</p>
+        <div class="actions">
+          <a class="btn" href="https://2gospotless.setmore.com/" target="_blank" rel="noopener">BOOK YOUR DETAIL →</a>
+          <a class="btn alt" href="tel:+16474483869">CALL 647-448-3869</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-badge">
+          <strong>2GoSpotless Mobile Detailing</strong>
+          <small>Convenience • Quality • A vehicle you’ll be proud to drive.</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="stats">
+          <div class="stat"><b>5.0★</b><span>Customer rating</span></div>
+          <div class="stat"><b>GTA</b><span>Mobile service area</span></div>
+          <div class="stat"><b>100%</b><span>Mobile convenience</span></div>
+          <div class="stat"><b>2Go</b><span>We come to you</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Choose your clean</div>
+            <h2>DETAILING<br><span class="yellow">SERVICES.</span></h2>
+          </div>
+          <p>Current services and starting prices based on your Setmore booking page. Prices may vary depending on vehicle condition.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service">
+            <div class="tag">Simple / Quick</div><h3>Bronze Package</h3><div class="price">$150</div>
+            <p>Complete interior + exterior refresh with vacuuming, crevice cleaning, wipe-down, mats, windows, door jambs and hand wash. Deep stain/salt removal not included.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Most popular</div><h3>Silver Package</h3><div class="price">$200</div>
+            <p>Everything in Bronze, plus focused stain and salt removal in up to two areas such as seats, carpets or floor sections.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Maintenance</div><h3>Exterior Maintenance</h3><div class="price">$40</div>
+            <p>Thorough hand wash, tire shine and detailed door jamb cleaning to keep your vehicle looking fresh between full details.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service featured">
+            <div class="tag">Deep clean</div><h3>Gold Package</h3><div class="price">$300</div>
+            <p>Full shampoo, extraction and steam cleaning of seats, mats and carpets. Additional charges apply for excessive pet hair or odor removal.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service featured">
+            <div class="tag">Top package</div><h3>Presidential Touch</h3><div class="price">$400</div>
+            <p>Gold-level interior restoration plus engine bay cleaning and premium exterior wax for the complete inside-and-out treatment.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Exterior</div><h3>Outside+ Premium</h3><div class="price">$140</div>
+            <p>Complete exterior hand wash, premium wax and a light polishing treatment to enhance gloss and clarity.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Protection</div><h3>Ceramic Coating</h3><div class="price">From $300</div>
+            <p>Durable paint protection with enhanced gloss and hydrophobic properties. Final pricing is discussed before scheduling.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Correction</div><h3>Paint Correction</h3><div class="price">From $1,000</div>
+            <p>Professional polishing to reduce swirls, scratches, oxidation and water spots. Vehicle inspection required before booking.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Add-on</div><h3>Headlight Restoration</h3><div class="price">$75</div>
+            <p>Remove oxidation and restore headlight clarity for a cleaner look and improved visibility.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Add-on</div><h3>Engine Wash</h3><div class="price">$80</div>
+            <p>Careful engine bay cleaning to remove built-up dirt, dust, grease and debris while protecting sensitive components.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Interior</div><h3>Pet Hair Removal</h3><div class="price">$50</div>
+            <p>Specialized removal of stubborn pet hair from seats, carpets and hard-to-reach interior areas.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+          <article class="service">
+            <div class="tag">Interior</div><h3>Odor Removal</h3><div class="price">$150</div>
+            <p>Professional ozone treatment designed to target unwanted odors from smoke, food, pets and everyday use.</p>
+            <a class="book" href="https://2gospotless.setmore.com/" target="_blank">BOOK →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container split">
+        <div>
+          <div class="eyebrow">The 2Go difference</div>
+          <h2 style="font-size:clamp(2.5rem,6vw,5rem);line-height:.92;letter-spacing:-.05em">THE DETAIL<br><span class="yellow">COMES TO YOU.</span></h2>
+          <p style="color:#aaa;margin-top:24px;max-width:560px">No waiting room. No driving across town. We bring the detailing service to your location across the Greater Toronto Area.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Built around your vehicle.</h3>
+          <p>Every vehicle gets attention where it actually needs it — from everyday maintenance cleans to deep interior restoration and paint protection.</p>
+          <div class="checks">
+            <div class="check"><i>✓</i><span>Mobile service across the GTA</span></div>
+            <div class="check"><i>✓</i><span>Interior + exterior detailing</span></div>
+            <div class="check"><i>✓</i><span>Deep cleaning and extraction</span></div>
+            <div class="check"><i>✓</i><span>Paint correction & protection options</span></div>
+            <div class="check"><i>✓</i><span>Easy online booking</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="padding-top:20px">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">The results</div><h2>OUR <span class="yellow">WORK.</span></h2></div>
+          <p>Replace these placeholders with your best before-and-after photos. The layout is already ready for them.</p>
+        </div>
+        <div class="gallery">
+          <div class="photo tall"><span>BEFORE / AFTER</span></div>
+          <div class="photo"><span>INTERIOR</span></div>
+          <div class="photo"><span>EXTERIOR</span></div>
+          <div class="photo"><span>DETAIL</span></div>
+          <div class="photo"><span>FINISH</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Real customers</div><h2>WHAT THEY<br><span class="yellow">SAY.</span></h2></div>
+          <p>Selected reviews from your current booking page.</p>
+        </div>
+        <div class="review-grid">
+          <article class="review"><div class="stars">★★★★★</div><p>“Marc did an amazing job! He took his time, cleaned everything in my car and left it looking brand new!”</p><b>Dara Dias</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“I don’t usually write reviews but wanted to for this service. First time using Mark and the car is spotless, definitely recommending him.”</p><b>Lori Goldenberg</b></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“My SUV looks like it just came out of the showroom and it is 7 years old. He didn’t miss a thing.”</p><b>Stephen Cohen</b></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container cta-in">
+        <div>
+          <h2>READY TO GO<br><span class="yellow">SPOTLESS?</span></h2>
+          <p>Book online or call 647-448-3869.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://2gospotless.setmore.com/" target="_blank" rel="noopener">BOOK ONLINE →</a>
+          <a class="btn alt" href="https://instagram.com/2gospotless" target="_blank" rel="noopener">@2GOSPOTLESS</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-in">
+      <div class="footer-left">
+        <img src="assets/2gospotless-logo.jpg" alt="2GoSpotless">
+        <div><b>2GoSpotless Mobile Detailing</b><small>Greater Toronto Area · Mobile detailing</small></div>
+      </div>
+      <div class="social">
+        <a href="https://instagram.com/2gospotless" target="_blank" rel="noopener">Instagram</a>
+        <a href="tel:+16474483869">647-448-3869</a>
+        <a href="https://2gospotless.setmore.com/" target="_blank" rel="noopener">Book</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileLinks = document.querySelector('.mobile-links');
+    document.querySelector('.menu').addEventListener('click', () => {
+      mobileLinks.style.display = mobileLinks.style.display === 'block' ? 'none' : 'block';
+    });
+    document.querySelectorAll('.mobile-links a').forEach(a => a.addEventListener('click', () => mobileLinks.style.display='none'));
+  </script>
+</body>
+</html>
