@@ -44,43 +44,34 @@ mobileLinks.forEach(function (link) {
 // AUTOMATIC COPYRIGHT YEAR
 // =====================================================
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
 
-  const servicesToggle =
-    document.getElementById("servicesToggle");
+  const button = document.getElementById("servicesToggle");
+  const services = document.getElementById("additionalServices");
 
-  const additionalServices =
-    document.getElementById("additionalServices");
-
-  if (!servicesToggle || !additionalServices) {
+  if (!button || !services) {
+    console.log("Services button or services section not found.");
     return;
   }
 
-  servicesToggle.addEventListener("click", function () {
+  button.onclick = function () {
 
-    const isOpen =
-      additionalServices.classList.toggle("show");
+    services.classList.toggle("show");
+    button.classList.toggle("active");
 
-    servicesToggle.classList.toggle(
-      "active",
-      isOpen
-    );
+    const open = services.classList.contains("show");
 
-    servicesToggle.setAttribute(
+    button.setAttribute(
       "aria-expanded",
-      isOpen ? "true" : "false"
+      open ? "true" : "false"
     );
 
-    const buttonText =
-      servicesToggle.querySelector("span:first-child");
+    const text = button.querySelector("span:first-child");
 
-    if (buttonText) {
-      buttonText.textContent =
-        isOpen
-          ? "SHOW LESS"
-          : "VIEW ALL SERVICES";
+    if (text) {
+      text.textContent =
+        open ? "SHOW LESS" : "VIEW ALL SERVICES";
     }
-
-  });
+  };
 
 });
