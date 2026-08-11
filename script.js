@@ -46,3 +46,21 @@ mobileLinks.forEach(function (link) {
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
+const servicesToggle = document.getElementById("servicesToggle");
+const additionalServices = document.getElementById("additionalServices");
+
+if (servicesToggle && additionalServices) {
+  servicesToggle.addEventListener("click", () => {
+    const isOpen = additionalServices.classList.toggle("show");
+
+    servicesToggle.classList.toggle("active", isOpen);
+
+    servicesToggle.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+    servicesToggle.querySelector("span:first-child").textContent =
+      isOpen ? "SHOW LESS" : "VIEW ALL SERVICES";
+  });
+}
