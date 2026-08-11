@@ -1234,7 +1234,30 @@ footer {
     flex-wrap: wrap;
 
   }
+.service-card {
+  min-height: 360px;
+  padding: 26px;
+  border-radius: 20px;
+}
 
+.service-card h3 {
+  margin-top: 45px;
+  font-size: 1.45rem;
+}
+
+.service-bottom {
+  align-items: flex-end;
+}
+
+.mobile-detailing-notice {
+  align-items: flex-start;
+  padding: 18px;
+}
+
+.mobile-detailing-icon {
+  width: 36px;
+  height: 36px;
+}
 }
 
 
