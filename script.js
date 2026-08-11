@@ -44,30 +44,17 @@ mobileLinks.forEach(function (link) {
 // AUTOMATIC COPYRIGHT YEAR
 // =====================================================
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-const servicesToggle = document.getElementById("servicesToggle");
-const additionalServices = document.getElementById("additionalServices");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (servicesToggle && additionalServices) {
-  servicesToggle.addEventListener("click", () => {
-    const isOpen = additionalServices.classList.toggle("show");
+  const servicesToggle =
+    document.getElementById("servicesToggle");
 
-    servicesToggle.classList.toggle("active", isOpen);
+  const additionalServices =
+    document.getElementById("additionalServices");
 
-    servicesToggle.setAttribute(
-      "aria-expanded",
-      isOpen ? "true" : "false"
-    );
-
-    servicesToggle.querySelector("span:first-child").textContent =
-      isOpen ? "SHOW LESS" : "VIEW ALL SERVICES";
-  });
-}
-const servicesToggle = document.getElementById("servicesToggle");
-const additionalServices = document.getElementById("additionalServices");
-
-if (servicesToggle && additionalServices) {
+  if (!servicesToggle || !additionalServices) {
+    return;
+  }
 
   servicesToggle.addEventListener("click", function () {
 
@@ -84,13 +71,16 @@ if (servicesToggle && additionalServices) {
       isOpen ? "true" : "false"
     );
 
-    servicesToggle.querySelector(
-      "span:first-child"
-    ).textContent =
-      isOpen
-        ? "SHOW LESS"
-        : "VIEW ALL SERVICES";
+    const buttonText =
+      servicesToggle.querySelector("span:first-child");
+
+    if (buttonText) {
+      buttonText.textContent =
+        isOpen
+          ? "SHOW LESS"
+          : "VIEW ALL SERVICES";
+    }
 
   });
 
-}
+});
