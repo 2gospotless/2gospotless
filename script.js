@@ -64,3 +64,33 @@ if (servicesToggle && additionalServices) {
       isOpen ? "SHOW LESS" : "VIEW ALL SERVICES";
   });
 }
+const servicesToggle = document.getElementById("servicesToggle");
+const additionalServices = document.getElementById("additionalServices");
+
+if (servicesToggle && additionalServices) {
+
+  servicesToggle.addEventListener("click", function () {
+
+    const isOpen =
+      additionalServices.classList.toggle("show");
+
+    servicesToggle.classList.toggle(
+      "active",
+      isOpen
+    );
+
+    servicesToggle.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+    servicesToggle.querySelector(
+      "span:first-child"
+    ).textContent =
+      isOpen
+        ? "SHOW LESS"
+        : "VIEW ALL SERVICES";
+
+  });
+
+}
