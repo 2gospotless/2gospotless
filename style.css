@@ -1,0 +1,1109 @@
+/* =====================================================
+   ✏️ 2GOSPOTLESS COLORS
+
+   Change these if you ever want different colors.
+===================================================== */
+
+:root {
+
+  --black: #0b0b0b;
+
+  --dark: #111111;
+
+  --dark-two: #171717;
+
+  --white: #f4f4f4;
+
+  --gray: #a8a8a8;
+
+  --yellow: #ffc21a;
+
+  --border: #292929;
+
+  --max-width: 1180px;
+
+}
+
+
+/* =====================================================
+   BASIC SETTINGS
+===================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: var(--black);
+
+  color: var(--white);
+
+  line-height: 1.55;
+
+}
+
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+
+img {
+
+  display: block;
+
+  max-width: 100%;
+
+}
+
+
+.container {
+
+  width: min(
+    var(--max-width),
+    92%
+  );
+
+  margin: auto;
+
+}
+
+
+.section {
+
+  padding: 100px 0;
+
+}
+
+
+.dark-section {
+
+  background: var(--dark);
+
+}
+
+
+h1,
+h2,
+h3 {
+
+  line-height: 1.08;
+
+}
+
+
+h2 {
+
+  font-size: clamp(
+    2.2rem,
+    5vw,
+    4rem
+  );
+
+  letter-spacing: -0.04em;
+
+}
+
+
+p {
+
+  color: var(--gray);
+
+}
+
+
+.section-label,
+.small-title {
+
+  color: var(--yellow);
+
+  font-size: 0.75rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+}
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  background:
+    rgba(11, 11, 11, 0.94);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(12px);
+
+}
+
+
+.header-inner {
+
+  min-height: 82px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+
+
+.logo {
+
+  width: 150px;
+
+  height: 55px;
+
+  object-fit: contain;
+
+  object-position: left center;
+
+}
+
+
+.desktop-menu {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+}
+
+
+.desktop-menu a {
+
+  font-size: 0.88rem;
+
+  font-weight: 700;
+
+}
+
+
+.desktop-menu a:hover {
+
+  color: var(--yellow);
+
+}
+
+
+.book-button {
+
+  background: var(--yellow);
+
+  color: #000 !important;
+
+  padding: 12px 18px;
+
+  border-radius: 8px;
+
+}
+
+
+.mobile-menu-button {
+
+  display: none;
+
+  background: none;
+
+  border: none;
+
+  color: white;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+}
+
+
+.mobile-menu {
+
+  display: none;
+
+}
+
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+  min-height: 760px;
+
+  display: flex;
+
+  align-items: center;
+
+  position: relative;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.90),
+      rgba(0,0,0,0.45)
+    ),
+
+    url("assets/hero.jpg")
+
+    center / cover no-repeat;
+
+}
+
+
+.hero-content {
+
+  padding-top: 80px;
+
+}
+
+
+.hero h1 {
+
+  margin-top: 18px;
+
+  max-width: 900px;
+
+  font-size: clamp(
+    3.4rem,
+    8vw,
+    7rem
+  );
+
+  letter-spacing: -0.065em;
+
+}
+
+
+.hero h1 span {
+
+  color: var(--yellow);
+
+}
+
+
+.hero-description {
+
+  max-width: 620px;
+
+  margin-top: 25px;
+
+  font-size: 1.15rem;
+
+}
+
+
+.hero-buttons {
+
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  margin-top: 35px;
+
+}
+
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button {
+
+  min-height: 52px;
+
+  padding:
+    0 24px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-size: 0.78rem;
+
+  font-weight: 850;
+
+  letter-spacing: 0.04em;
+
+  transition:
+    transform 0.2s,
+    background 0.2s;
+
+}
+
+
+.button:hover {
+
+  transform: translateY(-2px);
+
+}
+
+
+.yellow-button {
+
+  background: var(--yellow);
+
+  color: #000;
+
+}
+
+
+.outline-button {
+
+  border:
+    1px solid rgba(255,255,255,0.45);
+
+}
+
+
+.outline-button:hover {
+
+  border-color: var(--yellow);
+
+  color: var(--yellow);
+
+}
+
+
+.black-button {
+
+  background: #000;
+
+  color: white;
+
+}
+
+
+
+/* =====================================================
+   TWO COLUMN SECTIONS
+===================================================== */
+
+.two-column {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+}
+
+
+.large-text {
+
+  font-size: 1.12rem;
+
+}
+
+
+
+/* =====================================================
+   SECTION HEADINGS
+===================================================== */
+
+.section-heading {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: end;
+
+  gap: 40px;
+
+  margin-bottom: 45px;
+
+}
+
+
+.section-heading > p {
+
+  max-width: 380px;
+
+}
+
+
+.center-heading {
+
+  text-align: center;
+
+}
+
+
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.services-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 16px;
+
+}
+
+
+.service-card {
+
+  min-height: 360px;
+
+  padding: 30px;
+
+  background: var(--black);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 14px;
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+.service-card.featured {
+
+  border-color:
+    rgba(255,194,26,0.7);
+
+}
+
+
+.service-number {
+
+  color: var(--yellow);
+
+  font-size: 0.8rem;
+
+  font-weight: 900;
+
+}
+
+
+.service-card h3 {
+
+  margin-top: 80px;
+
+  font-size: 1.55rem;
+
+}
+
+
+.service-card p {
+
+  margin-top: 12px;
+
+  font-size: 0.93rem;
+
+}
+
+
+.price {
+
+  margin-top: auto;
+
+  padding-top: 25px;
+
+  border-top:
+    1px solid var(--border);
+
+  color: var(--yellow);
+
+  font-size: 1.35rem;
+
+  font-weight: 800;
+
+}
+
+
+.center {
+
+  text-align: center;
+
+  margin-top: 40px;
+
+}
+
+
+
+/* =====================================================
+   PHOTO GALLERY
+===================================================== */
+
+.gallery {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+
+}
+
+
+.gallery img {
+
+  width: 100%;
+
+  height: 330px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  background: var(--dark-two);
+
+  transition:
+    transform 0.25s;
+
+}
+
+
+.gallery img:hover {
+
+  transform: scale(1.015);
+
+}
+
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-image {
+
+  width: 100%;
+
+  height: 600px;
+
+  object-fit: cover;
+
+  border-radius: 14px;
+
+}
+
+
+.about-section h2 {
+
+  margin:
+    16px 0 25px;
+
+}
+
+
+.about-section p + p {
+
+  margin-top: 15px;
+
+}
+
+
+
+/* =====================================================
+   HOW IT WORKS
+===================================================== */
+
+.steps {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin-top: 50px;
+
+}
+
+
+.step {
+
+  padding:
+    30px 0;
+
+  border-top:
+    1px solid var(--border);
+
+}
+
+
+.step span {
+
+  color: var(--yellow);
+
+  font-weight: 900;
+
+}
+
+
+.step h3 {
+
+  margin-top: 28px;
+
+  font-size: 1.5rem;
+
+}
+
+
+.step p {
+
+  margin-top: 12px;
+
+}
+
+
+
+/* =====================================================
+   BOOKING BANNER
+===================================================== */
+
+.booking-banner {
+
+  padding: 75px 0;
+
+  background: var(--yellow);
+
+  color: #000;
+
+}
+
+
+.booking-content {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+}
+
+
+.booking-banner .section-label,
+
+.booking-banner p {
+
+  color: #000;
+
+}
+
+
+.booking-banner h2 {
+
+  margin-top: 8px;
+
+}
+
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-description {
+
+  max-width: 550px;
+
+  margin-top: 20px;
+
+}
+
+
+.contact-card {
+
+  background: var(--dark);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+}
+
+
+.contact-card > * {
+
+  display: block;
+
+  padding:
+    24px 28px;
+
+  border-bottom:
+    1px solid var(--border);
+
+}
+
+
+.contact-card > *:last-child {
+
+  border-bottom: none;
+
+}
+
+
+.contact-card small {
+
+  display: block;
+
+  color: var(--gray);
+
+  font-size: 0.75rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+
+}
+
+
+.contact-card strong {
+
+  display: block;
+
+  margin-top: 5px;
+
+}
+
+
+.contact-card a:hover strong {
+
+  color: var(--yellow);
+
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+  padding:
+    45px 0 25px;
+
+  background: #070707;
+
+  border-top:
+    1px solid var(--border);
+
+}
+
+
+.footer-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto auto;
+
+  gap: 40px;
+
+  align-items: center;
+
+}
+
+
+.footer-grid h3 {
+
+  font-size: 1.5rem;
+
+}
+
+
+.footer-grid h3 span {
+
+  color: var(--yellow);
+
+}
+
+
+.footer-links {
+
+  display: flex;
+
+  gap: 20px;
+
+}
+
+
+.footer-links a {
+
+  color: var(--gray);
+
+  font-size: 0.82rem;
+
+}
+
+
+.footer-links a:hover {
+
+  color: var(--yellow);
+
+}
+
+
+.copyright {
+
+  margin-top: 35px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid var(--border);
+
+  color: #777;
+
+  font-size: 0.75rem;
+
+}
+
+
+
+/* =====================================================
+   MOBILE PHONE VERSION
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .desktop-menu {
+
+    display: none;
+
+  }
+
+
+  .mobile-menu-button {
+
+    display: block;
+
+  }
+
+
+  .mobile-menu.open {
+
+    display: grid;
+
+    padding:
+      10px 4%;
+
+    background:
+      var(--black);
+
+  }
+
+
+  .mobile-menu a {
+
+    padding: 14px 0;
+
+    border-bottom:
+      1px solid var(--border);
+
+    font-weight: 700;
+
+  }
+
+
+  .two-column {
+
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+  }
+
+
+  .services-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+
+  .gallery {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+
+  .steps {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .booking-content {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+  }
+
+
+  .footer-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .footer-links {
+
+    flex-wrap: wrap;
+
+  }
+
+}
+
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .section {
+
+    padding: 70px 0;
+
+  }
+
+
+  .hero {
+
+    min-height: 680px;
+
+  }
+
+
+  .hero h1 {
+
+    font-size:
+      clamp(
+        3rem,
+        15vw,
+        5rem
+      );
+
+  }
+
+
+  .hero-buttons {
+
+    flex-direction: column;
+
+  }
+
+
+  .section-heading {
+
+    display: block;
+
+  }
+
+
+  .section-heading > p {
+
+    margin-top: 18px;
+
+  }
+
+
+  .services-grid,
+
+  .gallery {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .gallery img {
+
+    height: 300px;
+
+  }
+
+
+  .about-image {
+
+    height: 400px;
+
+  }
+
+}
