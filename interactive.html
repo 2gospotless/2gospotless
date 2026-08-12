@@ -1,1 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>2GoSpotless | Interactive Experience</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #080808;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .interactive-header {
+      width: 100%;
+      padding: 25px 40px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .back-button {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+
+      transition: 0.2s ease;
+    }
+
+    .back-button:hover {
+      color: #fff;
+    }
+
+
+    /* =========================
+       PAGE TITLE
+    ========================= */
+
+    .interactive-title {
+      text-align: center;
+      padding: 65px 20px 40px;
+    }
+
+    .interactive-title span {
+      display: block;
+
+      margin-bottom: 12px;
+
+      color: #777;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 4px;
+    }
+
+    .interactive-title h1 {
+      font-size: clamp(40px, 6vw, 70px);
+      font-weight: 800;
+
+      letter-spacing: -2px;
+    }
+
+    .interactive-title p {
+      margin-top: 15px;
+
+      color: #888;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       MAIN EXPERIENCE
+    ========================= */
+
+    .experience {
+      max-width: 1250px;
+
+      margin: 0 auto;
+
+      padding: 20px 25px 100px;
+
+      display: grid;
+
+      grid-template-columns: 1.5fr 0.7fr;
+
+      gap: 45px;
+
+      align-items: center;
+    }
+
+
+    /* =========================
+       IMAGE
+    ========================= */
+
+    .image-container {
+      position: relative;
+
+      width: 100%;
+
+      aspect-ratio: 16 / 10;
+
+      overflow: hidden;
+
+      background: #111;
+
+      border: 1px solid #292929;
+
+      border-radius: 8px;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.4s ease;
+    }
+
+    .image-container.changing img {
+      opacity: 0;
+      transform: scale(1.02);
+    }
+
+
+    /* =========================
+       IMAGE NUMBER
+    ========================= */
+
+    .image-number {
+      position: absolute;
+
+      bottom: 18px;
+      right: 20px;
+
+      color: #aaa;
+
+      font-size: 11px;
+
+      letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       PACKAGE MENU
+    ========================= */
+
+    .package-menu {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 10px;
+    }
+
+
+    .package-button {
+      width: 100%;
+
+      padding: 24px 20px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 18px;
+
+      background: #101010;
+
+      border: 1px solid #292929;
+
+      border-radius: 6px;
+
+      color: #fff;
+
+      text-align: left;
+
+      cursor: pointer;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+
+    .package-button:hover {
+      background: #151515;
+
+      border-color: #555;
+
+      transform: translateX(4px);
+    }
+
+
+    .package-button.active {
+      border-color: #d71920;
+
+      background: #151515;
+    }
+
+
+    .package-number {
+      color: #555;
+
+      font-size: 27px;
+
+      font-weight: 800;
+
+      min-width: 42px;
+    }
+
+
+    .package-button.active
+    .package-number {
+      color: #d71920;
+    }
+
+
+    .package-name {
+      font-size: 14px;
+
+      font-weight: 800;
+
+      letter-spacing: 0.5px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .interactive-header {
+        padding: 20px;
+      }
+
+      .interactive-title {
+        padding-top: 45px;
+      }
+
+      .experience {
+        grid-template-columns: 1fr;
+
+        padding: 15px 20px 70px;
+      }
+
+      .package-menu {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="interactive-header">
+
+    <div class="logo">
+      2GOSPOTLESS
+    </div>
+
+    <a
+      href="index.html"
+      class="back-button"
+    >
+      ← BACK TO WEBSITE
+    </a>
+
+  </header>
+
+
+  <!-- =========================
+       TITLE
+  ========================= -->
+
+  <section class="interactive-title">
+
+    <span>
+      2GOSPOTLESS
+    </span>
+
+    <h1>
+      Interactive Experience
+    </h1>
+
+    <p>
+      Explore what each package includes.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       EXPERIENCE
+  ========================= -->
+
+  <main class="experience">
+
+
+    <!-- IMAGE -->
+
+    <div
+      class="image-container"
+      id="imageContainer"
+    >
+
+      <img
+        id="packageImage"
+        src="assets/bronze.jpg"
+        alt="2GoSpotless Bronze Package"
+      >
+
+      <div
+        class="image-number"
+        id="imageNumber"
+      >
+        01 / 03
+      </div>
+
+    </div>
+
+
+    <!-- MENU -->
+
+    <div class="package-menu">
+
+
+      <!-- BRONZE -->
+
+      <button
+        class="package-button active"
+        data-image="assets/bronze.jpg"
+        data-number="01 / 03"
+      >
+
+        <div class="package-number">
+          01
+        </div>
+
+        <div class="package-name">
+          BRONZE PACKAGE
+        </div>
+
+      </button>
+
+
+      <!-- SILVER -->
+
+      <button
+        class="package-button"
+        data-image="assets/silver.jpg"
+        data-number="02 / 03"
+      >
+
+        <div class="package-number">
+          02
+        </div>
+
+        <div class="package-name">
+          SILVER PACKAGE
+        </div>
+
+      </button>
+
+
+      <!-- PRESIDENTIAL -->
+
+      <button
+        class="package-button"
+        data-image="assets/presidential.jpg"
+        data-number="03 / 03"
+      >
+
+        <div class="package-number">
+          03
+        </div>
+
+        <div class="package-name">
+          PRESIDENTIAL PACKAGE
+        </div>
+
+      </button>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    const buttons =
+      document.querySelectorAll(".package-button");
+
+    const image =
+      document.getElementById("packageImage");
+
+    const imageContainer =
+      document.getElementById("imageContainer");
+
+    const imageNumber =
+      document.getElementById("imageNumber");
+
+
+    buttons.forEach(button => {
+
+      button.addEventListener("click", function() {
+
+
+        /* Remove selected state */
+
+        buttons.forEach(item => {
+          item.classList.remove("active");
+        });
+
+
+        /* Select clicked package */
+
+        this.classList.add("active");
+
+
+        /* Get image */
+
+        const newImage =
+          this.getAttribute("data-image");
+
+
+        const newNumber =
+          this.getAttribute("data-number");
+
+
+        /* Fade image */
+
+        imageContainer.classList.add("changing");
+
+
+        setTimeout(() => {
+
+          image.src = newImage;
+
+          imageNumber.textContent = newNumber;
+
+
+          image.onload = () => {
+
+            imageContainer.classList.remove("changing");
+
+          };
+
+        }, 180);
+
+      });
+
+    });
+
+  </script>
+
+
+</body>
+</html>
