@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>2GoSpotless |  Detail Garage</title>
+  <title>2GoSpotless | Detail Garage</title>
 
   <style>
 
@@ -26,40 +27,73 @@
       padding: 0;
     }
 
+
     /* =========================
        HEADER
     ========================= */
-.interactive-header {
-  width: 100%;
-  padding: 25px 40px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    .interactive-header {
+      width: 100%;
+      height: 90px;
 
-  background: #000;
-  color: #fff;
+      padding: 15px 40px;
 
-  border-bottom: 1px solid #222;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  .logo {
-  height: 50px;
-  width: auto;
-  display: block;
-}
+      position: relative;
+
+      background: #000;
+      color: #fff;
+
+      border-bottom: 1px solid #222;
+    }
+
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .logo-link {
+      display: block;
+      line-height: 0;
+    }
+
+    .logo {
+      height: 50px;
+      width: auto;
+      display: block;
+
+      transition: transform 0.2s ease;
+    }
+
+    .logo-link:hover .logo {
+      transform: scale(1.05);
+    }
+
+
+    /* =========================
+       BACK BUTTON
+    ========================= */
 
     .back-button {
+      position: absolute;
+      left: 40px;
+
       color: #fff;
       text-decoration: none;
+
       font-size: 13px;
+      font-weight: 700;
+
       letter-spacing: 1px;
 
       transition: 0.2s ease;
     }
 
     .back-button:hover {
-      color: #fff;
+      color: #d71920;
     }
 
 
@@ -69,6 +103,7 @@
 
     .interactive-title {
       text-align: center;
+
       padding: 65px 20px 40px;
     }
 
@@ -85,19 +120,14 @@
       letter-spacing: 4px;
     }
 
-   .interactive-title h1 {
-  font-size: clamp(40px, 6vw, 70px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  color: #fff;
-}
+    .interactive-title h1 {
+      font-size: clamp(40px, 6vw, 70px);
 
-    .interactive-title p {
-      margin-top: 15px;
+      font-weight: 800;
 
-      color: #888;
+      letter-spacing: -2px;
 
-      font-size: 14px;
+      color: #fff;
     }
 
 
@@ -127,37 +157,44 @@
     ========================= */
 
     .image-container {
-  position: relative;
-  width: 100%;
-  max-height: 78vh;
+      position: relative;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+      width: 100%;
 
-  overflow: hidden;
+      max-height: 78vh;
 
-  background: #080808;
+      display: flex;
 
-  border: 1px solid #292929;
-  border-radius: 8px;
-}
+      justify-content: center;
 
-.image-container img {
-  display: block;
+      align-items: center;
 
-  width: auto;
-  height: auto;
+      overflow: hidden;
 
-  max-width: 100%;
-  max-height: 78vh;
+      background: #080808;
 
-  object-fit: contain;
+      border: 1px solid #292929;
 
-  transition:
-    opacity 0.3s ease,
-    transform 0.4s ease;
-}
+      border-radius: 8px;
+    }
+
+    .image-container img {
+      display: block;
+
+      width: auto;
+
+      height: auto;
+
+      max-width: 100%;
+
+      max-height: 78vh;
+
+      object-fit: contain;
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.4s ease;
+    }
 
 
     /* =========================
@@ -168,6 +205,7 @@
       position: absolute;
 
       bottom: 18px;
+
       right: 20px;
 
       color: #aaa;
@@ -189,7 +227,6 @@
 
       gap: 10px;
     }
-
 
     .package-button {
       width: 100%;
@@ -220,7 +257,6 @@
         transform 0.25s ease;
     }
 
-
     .package-button:hover {
       background: #151515;
 
@@ -229,13 +265,11 @@
       transform: translateX(4px);
     }
 
-
     .package-button.active {
       border-color: #d71920;
 
       background: #151515;
     }
-
 
     .package-number {
       color: #555;
@@ -247,12 +281,9 @@
       min-width: 42px;
     }
 
-
-    .package-button.active
-    .package-number {
+    .package-button.active .package-number {
       color: #d71920;
     }
-
 
     .package-name {
       font-size: 14px;
@@ -270,7 +301,19 @@
     @media (max-width: 850px) {
 
       .interactive-header {
-        padding: 20px;
+        height: 80px;
+
+        padding: 15px 20px;
+      }
+
+      .logo {
+        height: 45px;
+      }
+
+      .back-button {
+        left: 20px;
+
+        font-size: 11px;
       }
 
       .interactive-title {
@@ -293,9 +336,7 @@
 
 </head>
 
-
 <body>
-
 
   <!-- =========================
        HEADER
@@ -303,130 +344,143 @@
 
   <header class="interactive-header">
 
-    <a href="#home" class="logo-link">
-  <img 
-    src="./assets/logo.png" 
-    alt="2GoSpotless" 
-    class="logo"
-  >
+```
+<!-- BACK TO MAIN PAGE -->
+
+<a href="index.html" class="back-button">
+  ← BACK TO MAIN PAGE
 </a>
 
-    </header>
+
+<!-- CENTER LOGO -->
+
+<a href="index.html" class="logo-link">
+
+  <img
+    src="./assets/logo.png"
+    alt="2GoSpotless"
+    class="logo"
+  >
+
+</a>
+```
+
+  </header>
 
   <!-- =========================
-       TITLE
+       PAGE TITLE
   ========================= -->
 
   <section class="interactive-title">
 
-    <span>
-      2GOSPOTLESS GARAGE
-    </span>
+```
+<span>
+  2GOSPOTLESS GARAGE
+</span>
 
-    <h1>
-      Highlighted Visuals
-    </h1>
-
+<h1>
+  Highlighted Visuals
+</h1>
+```
 
   </section>
 
-
   <!-- =========================
-       EXPERIENCE
+       MAIN EXPERIENCE
   ========================= -->
 
   <main class="experience">
 
+```
+<!-- IMAGE -->
 
-    <!-- IMAGE -->
+<div
+  class="image-container"
+  id="imageContainer"
+>
 
-    <div
-      class="image-container"
-      id="imageContainer"
-    >
+  <img
+    id="packageImage"
+    src="assets/bronze.jpg"
+    alt="2GoSpotless Bronze Package"
+  >
 
-      <img
-        id="packageImage"
-        src="assets/bronze.jpg"
-        alt="2GoSpotless Bronze Package"
-      >
+  <div
+    class="image-number"
+    id="imageNumber"
+  >
+    01 / 03
+  </div>
 
-      <div
-        class="image-number"
-        id="imageNumber"
-      >
-        01 / 03
-      </div>
+</div>
 
+
+<!-- MENU -->
+
+<div class="package-menu">
+
+
+  <!-- BRONZE -->
+
+  <button
+    class="package-button active"
+    data-image="assets/bronze.jpg"
+    data-number="01 / 03"
+  >
+
+    <div class="package-number">
+      01
     </div>
 
-
-    <!-- MENU -->
-
-    <div class="package-menu">
-
-
-      <!-- BRONZE -->
-
-      <button
-        class="package-button active"
-        data-image="assets/bronze.jpg"
-        data-number="01 / 03"
-      >
-
-        <div class="package-number">
-          01
-        </div>
-
-        <div class="package-name">
-          BRONZE PACKAGE
-        </div>
-
-      </button>
-
-
-      <!-- SILVER -->
-
-      <button
-        class="package-button"
-        data-image="assets/silver.jpg"
-        data-number="02 / 03"
-      >
-
-        <div class="package-number">
-          02
-        </div>
-
-        <div class="package-name">
-          SILVER PACKAGE
-        </div>
-
-      </button>
-
-
-      <!-- PRESIDENTIAL -->
-
-      <button
-        class="package-button"
-        data-image="assets/presidential.jpg"
-        data-number="03 / 03"
-      >
-
-        <div class="package-number">
-          03
-        </div>
-
-        <div class="package-name">
-          PRESIDENTIAL PACKAGE
-        </div>
-
-      </button>
-
-
+    <div class="package-name">
+      BRONZE PACKAGE
     </div>
+
+  </button>
+
+
+  <!-- SILVER -->
+
+  <button
+    class="package-button"
+    data-image="assets/silver.jpg"
+    data-number="02 / 03"
+  >
+
+    <div class="package-number">
+      02
+    </div>
+
+    <div class="package-name">
+      SILVER PACKAGE
+    </div>
+
+  </button>
+
+
+  <!-- PRESIDENTIAL -->
+
+  <button
+    class="package-button"
+    data-image="assets/presidential.jpg"
+    data-number="03 / 03"
+  >
+
+    <div class="package-number">
+      03
+    </div>
+
+    <div class="package-name">
+      PRESIDENTIAL PACKAGE
+    </div>
+
+  </button>
+
+
+</div>
+```
 
   </main>
-
 
   <!-- =========================
        JAVASCRIPT
@@ -469,7 +523,6 @@
         const newImage =
           this.getAttribute("data-image");
 
-
         const newNumber =
           this.getAttribute("data-number");
 
@@ -499,6 +552,9 @@
     });
 
   </script>
+
+</body>
+</html>
 
 
 </body>
