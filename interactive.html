@@ -2,13 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="theme-color" content="#080808">
   <title>2GoSpotless | Detail Garage</title>
 
+  <!-- The viewport declaration keeps the layout responsive on mobile devices.  --> [w3schools](https://www.w3schools.com/htmlcss/htmlcss_first_webpage.asp)
+
   <style>
+    :root {
+      --gold: #ffd400;
+      --gold-soft: rgba(255, 212, 0, 0.2);
+      --gold-glow: rgba(255, 212, 0, 0.34);
+      --black: #050505;
+      --charcoal: #111111;
+      --panel: rgba(10, 10, 10, 0.84);
+      --line: rgba(255, 255, 255, 0.22);
+      --muted: rgba(255, 255, 255, 0.62);
+    }
 
     * {
       box-sizing: border-box;
@@ -16,997 +27,665 @@
       padding: 0;
     }
 
+    html {
+      min-height: 100%;
+      background: var(--black);
+    }
+
     body {
+      min-height: 100vh;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
       background:
         linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
         url("assets/garage.jpg");
-
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
       background-attachment: fixed;
-
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
     }
 
+    button,
+    a {
+      font: inherit;
+    }
 
-    /* =========================
-       HEADER
-    ========================= */
-
-    .interactive-header {
-      width: 100%;
-      height: 90px;
-
-      padding: 15px 40px;
-
+    .site-header {
+      position: relative;
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      position: relative;
-
-      background: #000;
-      color: #fff;
-
-      border-bottom: 1px solid #222;
-    }
-
-
-    /* =========================
-       LOGO
-    ========================= */
-
-    .logo-link {
-      display: block;
-      line-height: 0;
+      min-height: 82px;
+      padding: 14px 24px;
+      background: rgba(0, 0, 0, 0.94);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .logo {
+      display: block;
+      width: auto;
       height: 50px;
-      width: auto;
-      display: block;
-
-      transition: transform 0.2s ease;
-    }
-
-    .logo-link:hover .logo {
-      transform: scale(1.05);
-    }
-
-
-    /* =========================
-       BACK BUTTON
-    ========================= */
-
-    .back-button {
-      position: absolute;
-      left: 40px;
-
-      color: #fff;
-      text-decoration: none;
-
-      font-size: 13px;
-      font-weight: 700;
-
-      letter-spacing: 1px;
-
-      transition: 0.2s ease;
-    }
-
-    .back-button:hover {
-      color: #ffd400;
-    }
-
-
-    /* =========================
-       PAGE TITLE
-    ========================= */
-
-    .interactive-title {
-      text-align: center;
-
-      padding: 65px 20px 40px;
-    }
-
-    .interactive-title span {
-      display: block;
-
-      margin-bottom: 12px;
-
-      color: #777;
-
-      font-size: 10px;
-      font-weight: 700;
-
-      letter-spacing: 4px;
-    }
-
-    .interactive-title h1 {
-      font-size: clamp(40px, 6vw, 70px);
-
-      font-weight: 800;
-
-      letter-spacing: -2px;
-
-      color: #fff;
-    }
-
-
-    /* =========================
-       MAIN EXPERIENCE
-    ========================= */
-
-    .experience {
-      max-width: 1250px;
-
-      margin: 0 auto;
-
-      padding: 20px 25px 100px;
-
-      display: grid;
-
-      grid-template-columns: 1.5fr 0.7fr;
-
-      gap: 35px;
-
-      align-items: center;
-    }
-
-
-    /* =========================
-       IMAGE
-    ========================= */
-
-    .image-container {
-      position: relative;
-
-      width: 100%;
-
-      max-height: 78vh;
-
-      min-height: 450px;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      overflow: hidden;
-
-      background: #080808;
-
-      border: 1px solid #292929;
-
-      border-radius: 8px;
-    }
-
-    .image-container img {
-      display: block;
-
-      width: auto;
-
-      height: auto;
-
-      max-width: 100%;
-
-      max-height: 78vh;
-
       object-fit: contain;
-
-      opacity: 1;
-
-      transition:
-        opacity 0.3s ease,
-        transform 0.4s ease;
     }
 
-    .image-container.changing img {
-      opacity: 0;
-      transform: scale(0.98);
-    }
-
-
-    /* =========================
-       IMAGE NUMBER
-    ========================= */
-
-    .image-number {
+    .back-link {
       position: absolute;
-
-      bottom: 18px;
-      right: 20px;
-
-      color: #aaa;
-
-      font-size: 11px;
-
-      letter-spacing: 2px;
+      left: 24px;
+      top: 50%;
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      color: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(0, 0, 0, 0.38);
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      transform: translateY(-50%);
+      transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
     }
 
+    .back-link:hover,
+    .back-link:focus-visible {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(255, 212, 0, 0.08);
+      outline: none;
+    }
 
-    /* =========================
-       GTA STYLE WHEEL AREA
-    ========================= */
+    main {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 58px 0 72px;
+    }
 
-    .wheel-area {
+    .page-heading {
+      margin-bottom: 34px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 9px;
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.34em;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, 0.65);
+    }
+
+    .subtitle {
+      margin-top: 13px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.78rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .garage-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(450px, 0.9fr);
+      align-items: center;
+      gap: 30px;
       width: 100%;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      position: relative;
+      margin: 0 auto;
     }
 
-
-    /* =========================
-       WHEEL
-    ========================= */
-
-    .weapon-wheel {
-      width: 360px;
-      height: 360px;
-
+    .image-panel {
       position: relative;
-
       display: flex;
-
-      justify-content: center;
       align-items: center;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(25, 25, 25, 0.98) 0%,
-          rgba(8, 8, 8, 0.98) 48%,
-          rgba(0, 0, 0, 0.98) 72%
-        );
-
-      border: 2px solid #444;
-
-      box-shadow:
-        0 0 0 8px rgba(0, 0, 0, 0.45),
-        0 20px 60px rgba(0, 0, 0, 0.75);
-
-      transform: rotate(0deg);
+      justify-content: center;
+      min-height: 510px;
+      padding: 22px;
+      overflow: hidden;
+      background: rgba(4, 4, 4, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.5);
     }
 
-
-    /* =========================
-       WHEEL INNER RING
-    ========================= */
-
-    .wheel-inner {
+    .image-panel::before,
+    .image-panel::after {
       position: absolute;
-
-      width: 205px;
-      height: 205px;
-
-      border-radius: 50%;
-
-      border: 1px solid #333;
-
-      background: rgba(0, 0, 0, 0.35);
-
+      width: 54px;
+      height: 54px;
+      content: "";
       pointer-events: none;
     }
 
+    .image-panel::before {
+      top: 11px;
+      left: 11px;
+      border-top: 1px solid var(--gold);
+      border-left: 1px solid var(--gold);
+    }
 
-    /* =========================
-       WHEEL CENTER
-    ========================= */
+    .image-panel::after {
+      right: 11px;
+      bottom: 11px;
+      border-right: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+    }
 
-    .wheel-center {
-      width: 120px;
-      height: 120px;
+    .package-image {
+      display: block;
+      width: 100%;
+      height: 465px;
+      object-fit: contain;
+      opacity: 1;
+      transition: opacity 320ms ease;
+    }
 
+    .package-image.is-changing {
+      opacity: 0;
+    }
+
+    .image-label {
+      position: absolute;
+      right: 28px;
+      bottom: 25px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .wheel-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .wheel {
       position: relative;
-      z-index: 10;
+      width: min(500px, 100%);
+      aspect-ratio: 1;
+      filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.5));
+    }
 
+    .wheel::before {
+      position: absolute;
+      inset: 4%;
+      border: 1px solid rgba(255, 255, 255, 0.27);
       border-radius: 50%;
+      background:
+        radial-gradient(circle, transparent 0 28%, rgba(255, 255, 255, 0.05) 28.2% 28.6%, transparent 28.9%),
+        conic-gradient(
+          from 245deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.015) 24%,
+          rgba(255, 255, 255, 0.07) 25%,
+          rgba(255, 255, 255, 0.015) 58%,
+          rgba(255, 255, 255, 0.07) 59%,
+          rgba(255, 255, 255, 0.015)
+        ),
+        rgba(5, 5, 5, 0.78);
+      box-shadow:
+        inset 0 0 45px rgba(0, 0, 0, 0.95),
+        0 0 0 10px rgba(0, 0, 0, 0.2);
+      content: "";
+    }
 
+    .wheel::after {
+      position: absolute;
+      inset: 10%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .package-option {
+      position: absolute;
+      z-index: 2;
       display: flex;
       flex-direction: column;
-
-      justify-content: center;
       align-items: center;
-
-      text-align: center;
-
-      background:
-        radial-gradient(
-          circle,
-          #242424 0%,
-          #0b0b0b 70%
-        );
-
-      border: 2px solid #444;
-
-      box-shadow:
-        inset 0 0 25px rgba(0, 0, 0, 0.8),
-        0 0 25px rgba(0, 0, 0, 0.7);
-    }
-
-    .wheel-center-number {
-      color: #ffd400;
-
-      font-size: 30px;
-
-      font-weight: 900;
-
-      line-height: 1;
-    }
-
-    .wheel-center-text {
-      margin-top: 7px;
-
-      color: #aaa;
-
-      font-size: 8px;
-
-      font-weight: 700;
-
-      letter-spacing: 2px;
-    }
-
-
-    /* =========================
-       WHEEL OPTIONS
-    ========================= */
-
-    .wheel-option {
-      position: absolute;
-
-      width: 135px;
-      height: 135px;
-
-      display: flex;
-
       justify-content: center;
-      align-items: center;
-
-      border: 1px solid #333;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(35, 35, 35, 0.95),
-          rgba(10, 10, 10, 0.95)
-        );
-
-      color: #fff;
-
+      width: 46%;
+      height: 29%;
+      padding: 18px 20px;
+      color: rgba(255, 255, 255, 0.66);
       cursor: pointer;
-
-      clip-path: polygon(
-        18% 0%,
-        82% 0%,
-        100% 18%,
-        100% 82%,
-        82% 100%,
-        18% 100%,
-        0% 82%,
-        0% 18%
-      );
-
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      background:
+        linear-gradient(145deg, rgba(39, 39, 39, 0.88), rgba(7, 7, 7, 0.95));
+      clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%, 0 28%);
       transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+        color 200ms ease,
+        border-color 200ms ease,
+        background 200ms ease,
+        filter 200ms ease,
+        transform 200ms ease;
     }
 
-
-    /* TOP */
-
-    .wheel-option:nth-child(1) {
-      top: 12px;
-      left: 50%;
-
-      transform: translateX(-50%);
+    .package-option:hover,
+    .package-option:focus-visible {
+      color: #ffffff;
+      background: linear-gradient(145deg, rgba(67, 67, 67, 0.95), rgba(12, 12, 12, 0.98));
+      filter: brightness(1.15);
+      outline: none;
     }
 
-
-    /* RIGHT */
-
-    .wheel-option:nth-child(2) {
-      right: 12px;
-      top: 50%;
-
-      transform: translateY(-50%);
+    .package-option.is-active {
+      z-index: 4;
+      color: var(--gold);
+      border-color: var(--gold);
+      background:
+        linear-gradient(145deg, rgba(86, 72, 0, 0.52), rgba(12, 12, 8, 0.96));
+      filter: drop-shadow(0 0 8px var(--gold-glow));
     }
 
-
-    /* BOTTOM */
-
-    .wheel-option:nth-child(3) {
-      bottom: 12px;
-      left: 50%;
-
-      transform: translateX(-50%);
+    .package-option.is-active::after {
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(255, 212, 0, 0.52);
+      clip-path: inherit;
+      content: "";
+      pointer-events: none;
     }
 
-
-    /* =========================
-       OPTION CONTENT
-    ========================= */
-
-    .wheel-option-content {
-      text-align: center;
-
-      width: 100%;
+    .bronze-option {
+      left: 1%;
+      top: 35.5%;
+      transform: rotate(-2deg);
     }
 
-    .wheel-option-number {
-      display: block;
-
-      margin-bottom: 8px;
-
-      color: #666;
-
-      font-size: 24px;
-
-      font-weight: 900;
+    .silver-option {
+      right: 3%;
+      top: 7%;
+      transform: rotate(5deg);
     }
 
-    .wheel-option-name {
-      display: block;
+    .presidential-option {
+      right: 3%;
+      bottom: 7%;
+      transform: rotate(-5deg);
+    }
 
-      padding: 0 8px;
+    .package-option:hover {
+      transform: translateY(-3px) rotate(-2deg);
+    }
 
-      font-size: 11px;
+    .silver-option:hover {
+      transform: translateY(-3px) rotate(5deg);
+    }
 
+    .presidential-option:hover {
+      transform: translateY(-3px) rotate(-5deg);
+    }
+
+    .package-number {
+      margin-bottom: 7px;
+      color: rgba(255, 255, 255, 0.43);
+      font-size: 0.64rem;
+      letter-spacing: 0.18em;
+    }
+
+    .package-option.is-active .package-number {
+      color: rgba(255, 212, 0, 0.72);
+    }
+
+    .package-name {
+      font-size: clamp(0.75rem, 1.5vw, 0.96rem);
       font-weight: 800;
+      letter-spacing: 0.14em;
+      text-align: center;
+    }
 
-      letter-spacing: 0.5px;
+    .package-caption {
+      margin-top: 7px;
+      color: rgba(255, 255, 255, 0.44);
+      font-size: 0.56rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
+    .center-display {
+      position: absolute;
+      z-index: 5;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 31%;
+      aspect-ratio: 1;
+      padding: 15px;
+      text-align: center;
+      border: 1px solid rgba(255, 212, 0, 0.68);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(54, 45, 0, 0.5), rgba(7, 7, 7, 0.97) 67%);
+      box-shadow:
+        inset 0 0 25px rgba(255, 212, 0, 0.13),
+        0 0 22px rgba(255, 212, 0, 0.2);
+      transform: translate(-50%, -50%);
+    }
+
+    .center-display::before {
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .center-label {
+      position: relative;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: clamp(0.38rem, 1vw, 0.52rem);
+      font-weight: 700;
+      letter-spacing: 0.11em;
       line-height: 1.25;
     }
 
-
-    /* =========================
-       HOVER
-    ========================= */
-
-    .wheel-option:hover {
-      background:
-        linear-gradient(
-          145deg,
-          #252525,
-          #111
-        );
-
-      border-color: #777;
-
-      box-shadow:
-        0 0 20px rgba(255, 212, 0, 0.15);
+    .selected-name {
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+      margin-top: 8px;
+      color: var(--gold);
+      font-size: clamp(0.72rem, 1.7vw, 1rem);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      line-height: 1.1;
+      overflow-wrap: anywhere;
     }
 
-
-    /* =========================
-       ACTIVE OPTION
-    ========================= */
-
-    .wheel-option.active {
-      background:
-        linear-gradient(
-          145deg,
-          #333,
-          #111
-        );
-
-      border-color: #ffd400;
-
-      box-shadow:
-        0 0 25px rgba(255, 212, 0, 0.28),
-        inset 0 0 20px rgba(255, 212, 0, 0.06);
+    .selected-number {
+      position: relative;
+      z-index: 1;
+      margin-top: 7px;
+      color: rgba(255, 255, 255, 0.42);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
     }
 
-    .wheel-option.active .wheel-option-number {
-      color: #ffd400;
-    }
-
-
-    /* =========================
-       WHEEL LABEL
-    ========================= */
-
-    .wheel-label {
-      position: absolute;
-
-      bottom: -45px;
-
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      width: 100%;
-
-      text-align: center;
-
-      color: #777;
-
-      font-size: 9px;
-
-      font-weight: 700;
-
-      letter-spacing: 2px;
-    }
-
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 850px) {
-
-      .interactive-header {
-        height: 80px;
-
-        padding: 15px 20px;
+    @media (max-width: 900px) {
+      main {
+        width: min(680px, calc(100% - 32px));
+        padding-top: 42px;
       }
 
-      .logo {
-        height: 45px;
-      }
-
-      .back-button {
-        left: 20px;
-
-        font-size: 11px;
-      }
-
-      .interactive-title {
-        padding-top: 45px;
-        padding-bottom: 25px;
-      }
-
-      .interactive-title h1 {
-        font-size: 42px;
-      }
-
-      .experience {
+      .garage-layout {
         grid-template-columns: 1fr;
-
-        padding: 15px 20px 80px;
-
-        gap: 55px;
+        gap: 26px;
       }
 
-      .image-container {
-        min-height: 300px;
-
-        max-height: 65vh;
+      .image-panel {
+        min-height: 430px;
       }
 
-      .image-container img {
-        max-height: 65vh;
+      .package-image {
+        height: 390px;
       }
 
       .wheel-area {
-        padding-bottom: 45px;
+        width: min(500px, 100%);
+        margin: 0 auto;
       }
-
-      .weapon-wheel {
-        width: 300px;
-        height: 300px;
-      }
-
-      .wheel-inner {
-        width: 170px;
-        height: 170px;
-      }
-
-      .wheel-center {
-        width: 100px;
-        height: 100px;
-      }
-
-      .wheel-center-number {
-        font-size: 25px;
-      }
-
-      .wheel-option {
-        width: 112px;
-        height: 112px;
-      }
-
-      .wheel-option-number {
-        font-size: 20px;
-      }
-
-      .wheel-option-name {
-        font-size: 9px;
-      }
-
-      .wheel-option:nth-child(1) {
-        top: 8px;
-      }
-
-      .wheel-option:nth-child(2) {
-        right: 8px;
-      }
-
-      .wheel-option:nth-child(3) {
-        bottom: 8px;
-      }
-
     }
 
-
-    /* =========================
-       SMALL PHONES
-    ========================= */
-
-    @media (max-width: 450px) {
-
-      .interactive-header {
-        height: 75px;
+    @media (max-width: 560px) {
+      .site-header {
+        min-height: 76px;
+        padding: 14px 12px;
       }
 
       .logo {
-        height: 40px;
+        height: 43px;
+        max-width: 145px;
       }
 
-      .back-button {
-        font-size: 9px;
-        left: 15px;
+      .back-link {
+        left: 10px;
+        min-height: 32px;
+        padding: 0 8px;
+        font-size: 0.57rem;
+        letter-spacing: 0.08em;
       }
 
-      .interactive-title h1 {
-        font-size: 34px;
+      main {
+        width: calc(100% - 22px);
+        padding: 34px 0 46px;
       }
 
-      .weapon-wheel {
-        width: 270px;
-        height: 270px;
+      .page-heading {
+        margin-bottom: 24px;
       }
 
-      .wheel-inner {
-        width: 150px;
-        height: 150px;
+      h1 {
+        font-size: clamp(1.55rem, 8vw, 2.3rem);
+        letter-spacing: 0.08em;
       }
 
-      .wheel-center {
-        width: 88px;
-        height: 88px;
+      .subtitle {
+        margin-top: 10px;
+        font-size: 0.62rem;
+        letter-spacing: 0.2em;
       }
 
-      .wheel-option {
-        width: 100px;
-        height: 100px;
+      .image-panel {
+        min-height: 285px;
+        padding: 12px;
       }
 
-      .wheel-option-name {
-        font-size: 8px;
+      .package-image {
+        height: 255px;
       }
 
+      .image-label {
+        right: 17px;
+        bottom: 14px;
+        font-size: 0.52rem;
+      }
+
+      .wheel-area {
+        width: 100%;
+      }
+
+      .wheel {
+        width: min(100%, 420px);
+      }
+
+      .package-option {
+        padding: 10px 12px;
+      }
+
+      .package-number {
+        margin-bottom: 4px;
+        font-size: 0.49rem;
+      }
+
+      .package-name {
+        font-size: clamp(0.57rem, 2.5vw, 0.75rem);
+        letter-spacing: 0.09em;
+      }
+
+      .package-caption {
+        margin-top: 4px;
+        font-size: 0.42rem;
+      }
+
+      .center-label {
+        max-width: 78px;
+        font-size: 0.37rem;
+      }
+
+      .selected-name {
+        margin-top: 5px;
+        font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+      }
+
+      .selected-number {
+        margin-top: 4px;
+        font-size: 0.46rem;
+      }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
-
 </head>
 
-
 <body>
-
-
-  <!-- =========================
-       HEADER
-  ========================= -->
-
-  <header class="interactive-header">
-
-    <!-- BACK TO MAIN PAGE -->
-
-    <a href="index.html" class="back-button">
+  <header class="site-header">
+    <a class="back-link" href="index.html" aria-label="Back to main page">
       ← BACK TO MAIN PAGE
     </a>
 
-
-    <!-- CENTER LOGO -->
-
-    <a href="index.html" class="logo-link">
-
-      <img
-        src="./assets/logo.png"
-        alt="2GoSpotless"
-        class="logo"
-      >
-
+    <a href="index.html" aria-label="2GoSpotless home">
+      <img class="logo" src="./assets/logo.png" alt="2GoSpotless logo">
     </a>
-
   </header>
 
+  <main>
+    <section class="page-heading" aria-labelledby="garage-title">
+      <p class="eyebrow">2GOSPOTLESS DETAILING</p>
+      <h1 id="garage-title">2GOSPOTLESS GARAGE</h1>
+      <p class="subtitle">Highlighted Visuals</p>
+    </section>
 
-  <!-- =========================
-       PAGE TITLE
-  ========================= -->
-
-  <section class="interactive-title">
-
-    <span>
-      2GOSPOTLESS GARAGE
-    </span>
-
-    <h1>
-      Highlighted Visuals
-    </h1>
-
-  </section>
-
-
-  <!-- =========================
-       MAIN EXPERIENCE
-  ========================= -->
-
-  <main class="experience">
-
-
-    <!-- =========================
-         IMAGE
-    ========================= -->
-
-    <div
-      class="image-container"
-      id="imageContainer"
-    >
-
-      <img
-        id="packageImage"
-        src="assets/bronze.jpg"
-        alt="2GoSpotless Bronze Package"
-      >
-
-      <div
-        class="image-number"
-        id="imageNumber"
-      >
-        01 / 03
+    <section class="garage-layout" aria-label="Detailing package selector">
+      <div class="image-panel">
+        <img
+          id="package-image"
+          class="package-image"
+          src="assets/bronze.jpg"
+          alt="Bronze detailing package"
+        >
+        <span class="image-label">Vehicle detailing selection</span>
       </div>
 
-    </div>
-
-
-    <!-- =========================
-         GTA STYLE WHEEL
-    ========================= -->
-
-    <div class="wheel-area">
-
-      <div class="weapon-wheel">
-
-
-        <!-- INNER RING -->
-
-        <div class="wheel-inner"></div>
-
-
-        <!-- =====================
-             BRONZE
-        ====================== -->
-
-        <button
-          class="wheel-option active"
-          data-image="assets/bronze.jpg"
-          data-number="01 / 03"
-          data-name="BRONZE PACKAGE"
-        >
-
-          <div class="wheel-option-content">
-
-            <span class="wheel-option-number">
-              01
-            </span>
-
-            <span class="wheel-option-name">
-              BRONZE<br>
-              PACKAGE
-            </span>
-
-          </div>
-
-        </button>
-
-
-        <!-- =====================
-             SILVER
-        ====================== -->
-
-        <button
-          class="wheel-option"
-          data-image="assets/silver.jpg"
-          data-number="02 / 03"
-          data-name="SILVER PACKAGE"
-        >
-
-          <div class="wheel-option-content">
-
-            <span class="wheel-option-number">
-              02
-            </span>
-
-            <span class="wheel-option-name">
-              SILVER<br>
-              PACKAGE
-            </span>
-
-          </div>
-
-        </button>
-
-
-        <!-- =====================
-             PRESIDENTIAL
-        ====================== -->
-
-        <button
-          class="wheel-option"
-          data-image="assets/presidential.jpg"
-          data-number="03 / 03"
-          data-name="PRESIDENTIAL PACKAGE"
-        >
-
-          <div class="wheel-option-content">
-
-            <span class="wheel-option-number">
-              03
-            </span>
-
-            <span class="wheel-option-name">
-              PRESIDENTIAL<br>
-              PACKAGE
-            </span>
-
-          </div>
-
-        </button>
-
-
-        <!-- =====================
-             CENTER
-        ====================== -->
-
-        <div class="wheel-center">
-
-          <div
-            class="wheel-center-number"
-            id="wheelCenterNumber"
+      <div class="wheel-area">
+        <div class="wheel" role="group" aria-label="Choose a detailing package">
+          <button
+            class="package-option bronze-option is-active"
+            type="button"
+            data-package="BRONZE"
+            data-number="01"
+            data-image="assets/bronze.jpg"
+            data-alt="Bronze detailing package"
+            aria-pressed="true"
           >
-            01
-          </div>
+            <span class="package-number">01</span>
+            <span class="package-name">BRONZE</span>
+            <span class="package-caption">Essential finish</span>
+          </button>
 
-          <div
-            class="wheel-center-text"
-            id="wheelCenterText"
+          <button
+            class="package-option silver-option"
+            type="button"
+            data-package="SILVER"
+            data-number="02"
+            data-image="assets/silver.jpg"
+            data-alt="Silver detailing package"
+            aria-pressed="false"
           >
-            BRONZE
+            <span class="package-number">02</span>
+            <span class="package-name">SILVER</span>
+            <span class="package-caption">Enhanced finish</span>
+          </button>
+
+          <button
+            class="package-option presidential-option"
+            type="button"
+            data-package="PRESIDENTIAL"
+            data-number="03"
+            data-image="assets/presidential.jpg"
+            data-alt="Presidential detailing package"
+            aria-pressed="false"
+          >
+            <span class="package-number">03</span>
+            <span class="package-name">PRESIDENTIAL</span>
+            <span class="package-caption">Luxury finish</span>
+          </button>
+
+          <div class="center-display" aria-live="polite">
+            <span class="center-label">CURRENTLY SELECTED</span>
+            <span id="selected-name" class="selected-name">BRONZE</span>
+            <span id="selected-number" class="selected-number">01</span>
           </div>
-
         </div>
-
-
-        <!-- WHEEL LABEL -->
-
-        <div class="wheel-label">
-          SELECT PACKAGE
-        </div>
-
-
       </div>
-
-    </div>
-
-
+    </section>
   </main>
 
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const image = document.getElementById("package-image");
+      const selectedName = document.getElementById("selected-name");
+      const selectedNumber = document.getElementById("selected-number");
+      const packageOptions = document.querySelectorAll(".package-option");
 
-    const buttons =
-      document.querySelectorAll(".wheel-option");
+      function selectPackage(option) {
+        const packageName = option.dataset.package;
+        const packageNumber = option.dataset.number;
+        const imagePath = option.dataset.image;
+        const imageAlt = option.dataset.alt;
 
-    const image =
-      document.getElementById("packageImage");
-
-    const imageContainer =
-      document.getElementById("imageContainer");
-
-    const imageNumber =
-      document.getElementById("imageNumber");
-
-    const wheelCenterNumber =
-      document.getElementById("wheelCenterNumber");
-
-    const wheelCenterText =
-      document.getElementById("wheelCenterText");
-
-
-    /* =========================
-       PACKAGE SELECTION
-    ========================= */
-
-    buttons.forEach(button => {
-
-      button.addEventListener("click", function() {
-
-
-        /* Remove active state */
-
-        buttons.forEach(item => {
-          item.classList.remove("active");
+        packageOptions.forEach((item) => {
+          const isSelected = item === option;
+          item.classList.toggle("is-active", isSelected);
+          item.setAttribute("aria-pressed", String(isSelected));
         });
 
+        selectedName.textContent = packageName;
+        selectedNumber.textContent = packageNumber;
 
-        /* Activate selected option */
+        image.classList.add("is-changing");
 
-        this.classList.add("active");
+        window.setTimeout(() => {
+          image.src = imagePath;
+          image.alt = imageAlt;
 
+          image.addEventListener(
+            "load",
+            () => {
+              image.classList.remove("is-changing");
+            },
+            { once: true }
+          );
 
-        /* Get information */
-
-        const newImage =
-          this.getAttribute("data-image");
-
-        const newNumber =
-          this.getAttribute("data-number");
-
-        const newName =
-          this.getAttribute("data-name");
-
-
-        /* Update center */
-
-        wheelCenterNumber.textContent =
-          newNumber.substring(0, 2);
-
-        wheelCenterText.textContent =
-          newName.replace(" PACKAGE", "");
-
-
-        /* Fade image */
-
-        imageContainer.classList.add("changing");
-
-
-        setTimeout(() => {
-
-          image.src = newImage;
-
-          image.alt =
-            "2GoSpotless " + newName;
-
-
-          imageNumber.textContent =
-            newNumber;
-
-
-          image.onload = () => {
-
-            imageContainer.classList.remove("changing");
-
-          };
-
+          if (image.complete) {
+            image.classList.remove("is-changing");
+          }
         }, 180);
+      }
 
+      packageOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          selectPackage(option);
+        });
+
+        option.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectPackage(option);
+          }
+        });
       });
-
     });
-
   </script>
-
-
 </body>
 </html>
-```
-
