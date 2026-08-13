@@ -14,7 +14,6 @@
 --gold-glow: rgba(255, 212, 0, 0.34);
 --black: #050505;
 --panel: rgba(10, 10, 10, 0.84);
---line: rgba(255, 255, 255, 0.16);
 --text: rgba(255, 255, 255, 0.72);
 }
 
@@ -46,6 +45,8 @@ a,
 button {
 font: inherit;
 }
+
+/* HEADER */
 
 .site-header {
 position: relative;
@@ -93,6 +94,8 @@ background: rgba(255, 212, 0, 0.08);
 outline: none;
 }
 
+/* MAIN LAYOUT */
+
 main {
 width: min(1180px, calc(100% - 40px));
 margin: 0 auto;
@@ -137,6 +140,8 @@ gap: 30px;
 width: 100%;
 margin: 0 auto;
 }
+
+/* IMAGE PANEL */
 
 .image-panel {
 position: relative;
@@ -197,6 +202,8 @@ letter-spacing: 0.2em;
 text-transform: uppercase;
 }
 
+/* WHEEL */
+
 .wheel-area {
 display: flex;
 align-items: center;
@@ -213,7 +220,7 @@ filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.5));
 
 .wheel::before {
 position: absolute;
-inset: 2%;
+inset: 4%;
 border: 1px solid rgba(255, 255, 255, 0.26);
 border-radius: 50%;
 background:
@@ -227,128 +234,21 @@ content: "";
 
 .wheel::after {
 position: absolute;
-inset: 14%;
+inset: 18%;
 border: 1px solid rgba(255, 255, 255, 0.08);
 border-radius: 50%;
 content: "";
 pointer-events: none;
 }
 
-.package-option {
-position: absolute;
-z-index: 2;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 30%;
-aspect-ratio: 1;
-color: rgba(255, 255, 255, 0.7);
-cursor: pointer;
-border: 1px solid rgba(255, 255, 255, 0.24);
-border-radius: 50%;
-background:
-radial-gradient(circle at 30% 30%, rgba(70, 70, 70, 0.9), rgba(10, 10, 10, 0.96));
-box-shadow:
-inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-0 6px 22px rgba(0, 0, 0, 0.42);
-transition:
-transform 180ms ease,
-border-color 180ms ease,
-box-shadow 180ms ease,
-color 180ms ease,
-background 180ms ease;
-text-align: center;
-}
-
-.package-option:hover,
-.package-option:focus-visible {
-transform: translateY(-3px) scale(1.02);
-outline: none;
-border-color: rgba(255, 255, 255, 0.45);
-}
-
-.package-option.is-active {
-color: var(--gold);
-border-color: var(--gold);
-background:
-radial-gradient(circle at 30% 30%, rgba(110, 92, 0, 0.95), rgba(12, 12, 8, 0.98));
-box-shadow:
-0 0 0 1px rgba(255, 212, 0, 0.35),
-0 0 18px rgba(255, 212, 0, 0.22),
-inset 0 0 24px rgba(255, 212, 0, 0.08);
-}
-
-.package-option.is-active::after {
-position: absolute;
-inset: 5px;
-border: 1px solid rgba(255, 212, 0, 0.4);
-border-radius: 50%;
-content: "";
-pointer-events: none;
-}
-
-.bronze-option {
-left: 4%;
-top: 42%;
-}
-
-.silver-option {
-right: 12%;
-top: 10%;
-}
-
-.presidential-option {
-right: 8%;
-bottom: 8%;
-}
-
-.package-inner {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 5px;
-width: 100%;
-height: 100%;
-padding: 14px;
-}
-
-.package-number {
-color: rgba(255, 255, 255, 0.48);
-font-size: 0.58rem;
-font-weight: 700;
-letter-spacing: 0.18em;
-}
-
-.package-option.is-active .package-number {
-color: rgba(255, 212, 0, 0.75);
-}
-
-.package-name {
-font-size: clamp(0.72rem, 1.35vw, 0.96rem);
-font-weight: 800;
-letter-spacing: 0.13em;
-line-height: 1.1;
-}
-
-.package-caption {
-color: rgba(255, 255, 255, 0.44);
-font-size: 0.5rem;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-line-height: 1.2;
-}
+/* CENTER CIRCLE */
 
 .center-display {
 position: absolute;
 z-index: 5;
 top: 50%;
 left: 50%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 31%;
+width: 32%;
 aspect-ratio: 1;
 padding: 15px;
 text-align: center;
@@ -399,6 +299,129 @@ color: rgba(255, 255, 255, 0.42);
 font-size: 0.58rem;
 letter-spacing: 0.2em;
 }
+
+/* PACKAGE CIRCLES – SYMMETRIC AROUND CENTER */
+
+.package-option {
+position: absolute;
+z-index: 3;
+width: 26%;
+aspect-ratio: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+color: rgba(255, 255, 255, 0.7);
+cursor: pointer;
+border-radius: 50%;
+border: 1px solid rgba(255, 255, 255, 0.24);
+background:
+radial-gradient(circle at 30% 30%, rgba(70, 70, 70, 0.9), rgba(10, 10, 10, 0.96));
+box-shadow:
+inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+0 6px 22px rgba(0, 0, 0, 0.42);
+transition:
+transform 180ms ease,
+border-color 180ms ease,
+box-shadow 180ms ease,
+color 180ms ease,
+background 180ms ease;
+text-align: center;
+}
+
+.package-inner {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 5px;
+width: 100%;
+height: 100%;
+padding: 14px;
+}
+
+/* Symmetric positions: same radius from center */
+/* radius ~ 33% of wheel width */
+
+.bronze-option {
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) translateX(-33%);
+}
+
+.silver-option {
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) translate(22%, -26%);
+}
+
+.presidential-option {
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) translate(22%, 26%);
+}
+
+.package-option:hover,
+.package-option:focus-visible {
+transform: translate(-50%, -50%) scale(1.05) translateX(-33%);
+}
+
+.silver-option:hover,
+.silver-option:focus-visible {
+transform: translate(-50%, -50%) scale(1.05) translate(22%, -26%);
+}
+
+.presidential-option:hover,
+.presidential-option:focus-visible {
+transform: translate(-50%, -50%) scale(1.05) translate(22%, 26%);
+}
+
+.package-option.is-active {
+color: var(--gold);
+border-color: var(--gold);
+background:
+radial-gradient(circle at 30% 30%, rgba(110, 92, 0, 0.95), rgba(12, 12, 8, 0.98));
+box-shadow:
+0 0 0 1px rgba(255, 212, 0, 0.35),
+0 0 18px rgba(255, 212, 0, 0.22),
+inset 0 0 24px rgba(255, 212, 0, 0.08);
+}
+
+.package-option.is-active::after {
+position: absolute;
+inset: 5px;
+border: 1px solid rgba(255, 212, 0, 0.4);
+border-radius: 50%;
+content: "";
+pointer-events: none;
+}
+
+.package-number {
+color: rgba(255, 255, 255, 0.48);
+font-size: 0.58rem;
+font-weight: 700;
+letter-spacing: 0.18em;
+}
+
+.package-option.is-active .package-number {
+color: rgba(255, 212, 0, 0.75);
+}
+
+.package-name {
+font-size: clamp(0.72rem, 1.35vw, 0.96rem);
+font-weight: 800;
+letter-spacing: 0.13em;
+line-height: 1.1;
+}
+
+.package-caption {
+color: rgba(255, 255, 255, 0.44);
+font-size: 0.5rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+line-height: 1.2;
+}
+
+/* RESPONSIVE */
 
 @media (max-width: 900px) {
 main {
@@ -483,7 +506,7 @@ width: min(100%, 400px);
 }
 
 .package-option {
-width: 31%;
+width: 30%;
 }
 
 .package-inner {
@@ -548,11 +571,21 @@ class="package-image"
 src="assets/bronze.jpg"
 alt="Bronze detailing package"
 >
-
+<span class="image-label">Vehicle detailing selection</span>
+</div>
 
 <div class="wheel-area">
 <div class="wheel" role="group" aria-label="Choose a detailing package">
-<button class="package-option bronze-option is-active" type="button" data-package="BRONZE" data-number="01" data-image="assets/bronze.jpg" data-alt="Bronze detailing package" aria-pressed="true">
+<!-- Floating circles around center, equal distance -->
+<button
+class="package-option bronze-option is-active"
+type="button"
+data-package="BRONZE"
+data-number="01"
+data-image="assets/bronze.jpg"
+data-alt="Bronze detailing package"
+aria-pressed="true"
+>
 <div class="package-inner">
 <span class="package-number">01</span>
 <span class="package-name">BRONZE</span>
@@ -560,7 +593,15 @@ alt="Bronze detailing package"
 </div>
 </button>
 
-<button class="package-option silver-option" type="button" data-package="SILVER" data-number="02" data-image="assets/silver.jpg" data-alt="Silver detailing package" aria-pressed="false">
+<button
+class="package-option silver-option"
+type="button"
+data-package="SILVER"
+data-number="02"
+data-image="assets/silver.jpg"
+data-alt="Silver detailing package"
+aria-pressed="false"
+>
 <div class="package-inner">
 <span class="package-number">02</span>
 <span class="package-name">SILVER</span>
@@ -568,7 +609,15 @@ alt="Bronze detailing package"
 </div>
 </button>
 
-<button class="package-option presidential-option" type="button" data-package="PRESIDENTIAL" data-number="03" data-image="assets/presidential.jpg" data-alt="Presidential detailing package" aria-pressed="false">
+<button
+class="package-option presidential-option"
+type="button"
+data-package="PRESIDENTIAL"
+data-number="03"
+data-image="assets/presidential.jpg"
+data-alt="Presidential detailing package"
+aria-pressed="false"
+>
 <div class="package-inner">
 <span class="package-number">03</span>
 <span class="package-name">PRESIDENTIAL</span>
