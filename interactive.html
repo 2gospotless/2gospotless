@@ -29,17 +29,19 @@
     /* =========================
        HEADER
     ========================= */
+.interactive-header {
+  width: 100%;
+  padding: 25px 40px;
 
-    .interactive-header {
-      width: 100%;
-      padding: 25px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  background: #000;
+  color: #fff;
 
-      border-bottom: 1px solid #222;
-    }
+  border-bottom: 1px solid #222;
+}
 
     .logo {
       font-size: 18px;
@@ -48,7 +50,7 @@
     }
 
     .back-button {
-      color: #aaa;
+      color: #fff;
       text-decoration: none;
       font-size: 13px;
       letter-spacing: 1px;
@@ -302,8 +304,8 @@
   <header class="interactive-header">
 
     <div class="logo">
-      2GOSPOTLESS
-    </div>
+  <img src="assets/logo.png" alt="2GoSpotless">
+</div>
 
     <a
       href="index.html"
@@ -508,3 +510,8 @@
 
 </body>
 </html>
+.logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
