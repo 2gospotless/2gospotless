@@ -1,5 +1,5 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 
@@ -10,6 +10,12 @@
 
   <style>
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background:
         linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
@@ -19,12 +25,9 @@
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
-    }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
 
@@ -93,7 +96,7 @@
     }
 
     .back-button:hover {
-      color: #d71920;
+      color: #ffd400;
     }
 
 
@@ -146,7 +149,7 @@
 
       grid-template-columns: 1.5fr 0.7fr;
 
-      gap: 45px;
+      gap: 35px;
 
       align-items: center;
     }
@@ -162,6 +165,8 @@
       width: 100%;
 
       max-height: 78vh;
+
+      min-height: 450px;
 
       display: flex;
 
@@ -191,9 +196,16 @@
 
       object-fit: contain;
 
+      opacity: 1;
+
       transition:
         opacity 0.3s ease,
         transform 0.4s ease;
+    }
+
+    .image-container.changing img {
+      opacity: 0;
+      transform: scale(0.98);
     }
 
 
@@ -205,7 +217,6 @@
       position: absolute;
 
       bottom: 18px;
-
       right: 20px;
 
       color: #aaa;
@@ -217,80 +228,315 @@
 
 
     /* =========================
-       PACKAGE MENU
+       GTA STYLE WHEEL AREA
     ========================= */
 
-    .package-menu {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 10px;
-    }
-
-    .package-button {
+    .wheel-area {
       width: 100%;
 
-      padding: 24px 20px;
-
       display: flex;
+
+      justify-content: center;
 
       align-items: center;
 
-      gap: 18px;
+      position: relative;
+    }
 
-      background: #101010;
 
-      border: 1px solid #292929;
+    /* =========================
+       WHEEL
+    ========================= */
 
-      border-radius: 6px;
+    .weapon-wheel {
+      width: 360px;
+      height: 360px;
+
+      position: relative;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(25, 25, 25, 0.98) 0%,
+          rgba(8, 8, 8, 0.98) 48%,
+          rgba(0, 0, 0, 0.98) 72%
+        );
+
+      border: 2px solid #444;
+
+      box-shadow:
+        0 0 0 8px rgba(0, 0, 0, 0.45),
+        0 20px 60px rgba(0, 0, 0, 0.75);
+
+      transform: rotate(0deg);
+    }
+
+
+    /* =========================
+       WHEEL INNER RING
+    ========================= */
+
+    .wheel-inner {
+      position: absolute;
+
+      width: 205px;
+      height: 205px;
+
+      border-radius: 50%;
+
+      border: 1px solid #333;
+
+      background: rgba(0, 0, 0, 0.35);
+
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       WHEEL CENTER
+    ========================= */
+
+    .wheel-center {
+      width: 120px;
+      height: 120px;
+
+      position: relative;
+      z-index: 10;
+
+      border-radius: 50%;
+
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle,
+          #242424 0%,
+          #0b0b0b 70%
+        );
+
+      border: 2px solid #444;
+
+      box-shadow:
+        inset 0 0 25px rgba(0, 0, 0, 0.8),
+        0 0 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .wheel-center-number {
+      color: #ffd400;
+
+      font-size: 30px;
+
+      font-weight: 900;
+
+      line-height: 1;
+    }
+
+    .wheel-center-text {
+      margin-top: 7px;
+
+      color: #aaa;
+
+      font-size: 8px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       WHEEL OPTIONS
+    ========================= */
+
+    .wheel-option {
+      position: absolute;
+
+      width: 135px;
+      height: 135px;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid #333;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(35, 35, 35, 0.95),
+          rgba(10, 10, 10, 0.95)
+        );
 
       color: #fff;
 
-      text-align: left;
-
       cursor: pointer;
 
+      clip-path: polygon(
+        18% 0%,
+        82% 0%,
+        100% 18%,
+        100% 82%,
+        82% 100%,
+        18% 100%,
+        0% 82%,
+        0% 18%
+      );
+
       transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .package-button:hover {
-      background: #151515;
 
-      border-color: #555;
+    /* TOP */
 
-      transform: translateX(4px);
+    .wheel-option:nth-child(1) {
+      top: 12px;
+      left: 50%;
+
+      transform: translateX(-50%);
     }
 
-    .package-button.active {
-      border-color: #d71920;
 
-      background: #151515;
+    /* RIGHT */
+
+    .wheel-option:nth-child(2) {
+      right: 12px;
+      top: 50%;
+
+      transform: translateY(-50%);
     }
 
-    .package-number {
-      color: #555;
 
-      font-size: 27px;
+    /* BOTTOM */
 
-      font-weight: 800;
+    .wheel-option:nth-child(3) {
+      bottom: 12px;
+      left: 50%;
 
-      min-width: 42px;
+      transform: translateX(-50%);
     }
 
-    .package-button.active .package-number {
-      color: #d71920;
+
+    /* =========================
+       OPTION CONTENT
+    ========================= */
+
+    .wheel-option-content {
+      text-align: center;
+
+      width: 100%;
     }
 
-    .package-name {
-      font-size: 14px;
+    .wheel-option-number {
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: #666;
+
+      font-size: 24px;
+
+      font-weight: 900;
+    }
+
+    .wheel-option-name {
+      display: block;
+
+      padding: 0 8px;
+
+      font-size: 11px;
 
       font-weight: 800;
 
       letter-spacing: 0.5px;
+
+      line-height: 1.25;
+    }
+
+
+    /* =========================
+       HOVER
+    ========================= */
+
+    .wheel-option:hover {
+      background:
+        linear-gradient(
+          145deg,
+          #252525,
+          #111
+        );
+
+      border-color: #777;
+
+      box-shadow:
+        0 0 20px rgba(255, 212, 0, 0.15);
+    }
+
+
+    /* =========================
+       ACTIVE OPTION
+    ========================= */
+
+    .wheel-option.active {
+      background:
+        linear-gradient(
+          145deg,
+          #333,
+          #111
+        );
+
+      border-color: #ffd400;
+
+      box-shadow:
+        0 0 25px rgba(255, 212, 0, 0.28),
+        inset 0 0 20px rgba(255, 212, 0, 0.06);
+    }
+
+    .wheel-option.active .wheel-option-number {
+      color: #ffd400;
+    }
+
+
+    /* =========================
+       WHEEL LABEL
+    ========================= */
+
+    .wheel-label {
+      position: absolute;
+
+      bottom: -45px;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 100%;
+
+      text-align: center;
+
+      color: #777;
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
     }
 
 
@@ -318,16 +564,127 @@
 
       .interactive-title {
         padding-top: 45px;
+        padding-bottom: 25px;
+      }
+
+      .interactive-title h1 {
+        font-size: 42px;
       }
 
       .experience {
         grid-template-columns: 1fr;
 
-        padding: 15px 20px 70px;
+        padding: 15px 20px 80px;
+
+        gap: 55px;
       }
 
-      .package-menu {
-        width: 100%;
+      .image-container {
+        min-height: 300px;
+
+        max-height: 65vh;
+      }
+
+      .image-container img {
+        max-height: 65vh;
+      }
+
+      .wheel-area {
+        padding-bottom: 45px;
+      }
+
+      .weapon-wheel {
+        width: 300px;
+        height: 300px;
+      }
+
+      .wheel-inner {
+        width: 170px;
+        height: 170px;
+      }
+
+      .wheel-center {
+        width: 100px;
+        height: 100px;
+      }
+
+      .wheel-center-number {
+        font-size: 25px;
+      }
+
+      .wheel-option {
+        width: 112px;
+        height: 112px;
+      }
+
+      .wheel-option-number {
+        font-size: 20px;
+      }
+
+      .wheel-option-name {
+        font-size: 9px;
+      }
+
+      .wheel-option:nth-child(1) {
+        top: 8px;
+      }
+
+      .wheel-option:nth-child(2) {
+        right: 8px;
+      }
+
+      .wheel-option:nth-child(3) {
+        bottom: 8px;
+      }
+
+    }
+
+
+    /* =========================
+       SMALL PHONES
+    ========================= */
+
+    @media (max-width: 450px) {
+
+      .interactive-header {
+        height: 75px;
+      }
+
+      .logo {
+        height: 40px;
+      }
+
+      .back-button {
+        font-size: 9px;
+        left: 15px;
+      }
+
+      .interactive-title h1 {
+        font-size: 34px;
+      }
+
+      .weapon-wheel {
+        width: 270px;
+        height: 270px;
+      }
+
+      .wheel-inner {
+        width: 150px;
+        height: 150px;
+      }
+
+      .wheel-center {
+        width: 88px;
+        height: 88px;
+      }
+
+      .wheel-option {
+        width: 100px;
+        height: 100px;
+      }
+
+      .wheel-option-name {
+        font-size: 8px;
       }
 
     }
@@ -336,7 +693,9 @@
 
 </head>
 
+
 <body>
+
 
   <!-- =========================
        HEADER
@@ -344,28 +703,27 @@
 
   <header class="interactive-header">
 
-```
-<!-- BACK TO MAIN PAGE -->
+    <!-- BACK TO MAIN PAGE -->
 
-<a href="index.html" class="back-button">
-  ← BACK TO MAIN PAGE
-</a>
+    <a href="index.html" class="back-button">
+      ← BACK TO MAIN PAGE
+    </a>
 
 
-<!-- CENTER LOGO -->
+    <!-- CENTER LOGO -->
 
-<a href="index.html" class="logo-link">
+    <a href="index.html" class="logo-link">
 
-  <img
-    src="./assets/logo.png"
-    alt="2GoSpotless"
-    class="logo"
-  >
+      <img
+        src="./assets/logo.png"
+        alt="2GoSpotless"
+        class="logo"
+      >
 
-</a>
-```
+    </a>
 
   </header>
+
 
   <!-- =========================
        PAGE TITLE
@@ -373,17 +731,16 @@
 
   <section class="interactive-title">
 
-```
-<span>
-  2GOSPOTLESS GARAGE
-</span>
+    <span>
+      2GOSPOTLESS GARAGE
+    </span>
 
-<h1>
-  Highlighted Visuals
-</h1>
-```
+    <h1>
+      Highlighted Visuals
+    </h1>
 
   </section>
+
 
   <!-- =========================
        MAIN EXPERIENCE
@@ -391,96 +748,164 @@
 
   <main class="experience">
 
-```
-<!-- IMAGE -->
 
-<div
-  class="image-container"
-  id="imageContainer"
->
+    <!-- =========================
+         IMAGE
+    ========================= -->
 
-  <img
-    id="packageImage"
-    src="assets/bronze.jpg"
-    alt="2GoSpotless Bronze Package"
-  >
+    <div
+      class="image-container"
+      id="imageContainer"
+    >
 
-  <div
-    class="image-number"
-    id="imageNumber"
-  >
-    01 / 03
-  </div>
+      <img
+        id="packageImage"
+        src="assets/bronze.jpg"
+        alt="2GoSpotless Bronze Package"
+      >
 
-</div>
+      <div
+        class="image-number"
+        id="imageNumber"
+      >
+        01 / 03
+      </div>
 
-
-<!-- MENU -->
-
-<div class="package-menu">
-
-
-  <!-- BRONZE -->
-
-  <button
-    class="package-button active"
-    data-image="assets/bronze.jpg"
-    data-number="01 / 03"
-  >
-
-    <div class="package-number">
-      01
     </div>
 
-    <div class="package-name">
-      BRONZE PACKAGE
+
+    <!-- =========================
+         GTA STYLE WHEEL
+    ========================= -->
+
+    <div class="wheel-area">
+
+      <div class="weapon-wheel">
+
+
+        <!-- INNER RING -->
+
+        <div class="wheel-inner"></div>
+
+
+        <!-- =====================
+             BRONZE
+        ====================== -->
+
+        <button
+          class="wheel-option active"
+          data-image="assets/bronze.jpg"
+          data-number="01 / 03"
+          data-name="BRONZE PACKAGE"
+        >
+
+          <div class="wheel-option-content">
+
+            <span class="wheel-option-number">
+              01
+            </span>
+
+            <span class="wheel-option-name">
+              BRONZE<br>
+              PACKAGE
+            </span>
+
+          </div>
+
+        </button>
+
+
+        <!-- =====================
+             SILVER
+        ====================== -->
+
+        <button
+          class="wheel-option"
+          data-image="assets/silver.jpg"
+          data-number="02 / 03"
+          data-name="SILVER PACKAGE"
+        >
+
+          <div class="wheel-option-content">
+
+            <span class="wheel-option-number">
+              02
+            </span>
+
+            <span class="wheel-option-name">
+              SILVER<br>
+              PACKAGE
+            </span>
+
+          </div>
+
+        </button>
+
+
+        <!-- =====================
+             PRESIDENTIAL
+        ====================== -->
+
+        <button
+          class="wheel-option"
+          data-image="assets/presidential.jpg"
+          data-number="03 / 03"
+          data-name="PRESIDENTIAL PACKAGE"
+        >
+
+          <div class="wheel-option-content">
+
+            <span class="wheel-option-number">
+              03
+            </span>
+
+            <span class="wheel-option-name">
+              PRESIDENTIAL<br>
+              PACKAGE
+            </span>
+
+          </div>
+
+        </button>
+
+
+        <!-- =====================
+             CENTER
+        ====================== -->
+
+        <div class="wheel-center">
+
+          <div
+            class="wheel-center-number"
+            id="wheelCenterNumber"
+          >
+            01
+          </div>
+
+          <div
+            class="wheel-center-text"
+            id="wheelCenterText"
+          >
+            BRONZE
+          </div>
+
+        </div>
+
+
+        <!-- WHEEL LABEL -->
+
+        <div class="wheel-label">
+          SELECT PACKAGE
+        </div>
+
+
+      </div>
+
     </div>
 
-  </button>
-
-
-  <!-- SILVER -->
-
-  <button
-    class="package-button"
-    data-image="assets/silver.jpg"
-    data-number="02 / 03"
-  >
-
-    <div class="package-number">
-      02
-    </div>
-
-    <div class="package-name">
-      SILVER PACKAGE
-    </div>
-
-  </button>
-
-
-  <!-- PRESIDENTIAL -->
-
-  <button
-    class="package-button"
-    data-image="assets/presidential.jpg"
-    data-number="03 / 03"
-  >
-
-    <div class="package-number">
-      03
-    </div>
-
-    <div class="package-name">
-      PRESIDENTIAL PACKAGE
-    </div>
-
-  </button>
-
-
-</div>
-```
 
   </main>
+
 
   <!-- =========================
        JAVASCRIPT
@@ -489,7 +914,7 @@
   <script>
 
     const buttons =
-      document.querySelectorAll(".package-button");
+      document.querySelectorAll(".wheel-option");
 
     const image =
       document.getElementById("packageImage");
@@ -500,31 +925,53 @@
     const imageNumber =
       document.getElementById("imageNumber");
 
+    const wheelCenterNumber =
+      document.getElementById("wheelCenterNumber");
+
+    const wheelCenterText =
+      document.getElementById("wheelCenterText");
+
+
+    /* =========================
+       PACKAGE SELECTION
+    ========================= */
 
     buttons.forEach(button => {
 
       button.addEventListener("click", function() {
 
 
-        /* Remove selected state */
+        /* Remove active state */
 
         buttons.forEach(item => {
           item.classList.remove("active");
         });
 
 
-        /* Select clicked package */
+        /* Activate selected option */
 
         this.classList.add("active");
 
 
-        /* Get image */
+        /* Get information */
 
         const newImage =
           this.getAttribute("data-image");
 
         const newNumber =
           this.getAttribute("data-number");
+
+        const newName =
+          this.getAttribute("data-name");
+
+
+        /* Update center */
+
+        wheelCenterNumber.textContent =
+          newNumber.substring(0, 2);
+
+        wheelCenterText.textContent =
+          newName.replace(" PACKAGE", "");
 
 
         /* Fade image */
@@ -536,7 +983,12 @@
 
           image.src = newImage;
 
-          imageNumber.textContent = newNumber;
+          image.alt =
+            "2GoSpotless " + newName;
+
+
+          imageNumber.textContent =
+            newNumber;
 
 
           image.onload = () => {
@@ -553,9 +1005,8 @@
 
   </script>
 
-</body>
-</html>
-
 
 </body>
 </html>
+```
+
