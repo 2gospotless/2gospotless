@@ -901,59 +901,122 @@
   }
 </style>
 
-  <!-- =====================================================
-       ✏️ ABOUT SECTION
+ <!-- =====================================================
+     ✏️ ABOUT SECTION
+     ====================================================== -->
 
-       Replace:
-       assets/about.jpg
+<style>
 
-  ====================================================== -->
+  /* =====================================================
+     ABOUT IMAGE FIX
+     Keeps the entire GTI visible instead of cropping it
+     ====================================================== */
 
-  <section
-    class="section dark-section"
-    id="about"
-  >
+  .about-section {
+    overflow: visible !important;
+  }
 
-    <div class="container two-column about-section">
+  .about-section > div:first-child {
+    overflow: visible !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-      <div>
+  .about-image {
+    display: block;
 
-        <img
-          src="assets/GOLFSETUP.png"
-          alt="2GoSpotless detailing"
-          class="about-image"
-        >
+    width: 100%;
+    height: auto;
 
-      </div>
+    max-width: 100%;
+    max-height: 620px;
+
+    object-fit: contain;
+    object-position: center;
+
+    margin: 0 auto;
+  }
 
 
-      <div>
+  /* =====================================================
+     MOBILE
+     ====================================================== */
 
-        <p class="section-label">
-          ABOUT 2GOSPOTLESS
-        </p>
+  @media (max-width: 850px) {
 
-        <h2>
-          More Than A Clean Car.
-        </h2>
+    .about-section > div:first-child {
+      width: 100%;
+    }
 
-        <p>
-          At 2GoSpotless, the goal is simple:
-          deliver a noticeably cleaner, fresher vehicle
-          without making you leave your home or workplace.
-        </p>
+    .about-image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+    }
 
-        <p>
-          We focus on the details that make the biggest
-          difference — from the interior surfaces you
-          touch every day to the exterior finish everyone sees.
-        </p>
+  }
 
-      </div>
+</style>
+
+
+<section
+  class="section dark-section"
+  id="about"
+>
+
+  <div class="container two-column about-section">
+
+
+    <!-- =================================================
+         IMAGE
+         ================================================= -->
+
+    <div>
+
+      <img
+        src="assets/GOLFSETUP.png"
+        alt="2GoSpotless detailing setup"
+        class="about-image"
+      >
 
     </div>
 
-  </section>
+
+    <!-- =================================================
+         TEXT
+         ================================================= -->
+
+    <div>
+
+      <p class="section-label">
+        ABOUT 2GOSPOTLESS
+      </p>
+
+      <h2>
+        More Than A Clean Car.
+      </h2>
+
+      <p>
+        At 2GoSpotless, the goal is simple:
+        deliver a noticeably cleaner, fresher vehicle
+        without making you leave your home or workplace.
+      </p>
+
+      <p>
+        We focus on the details that make the biggest
+        difference — from the interior surfaces you
+        touch every day to the exterior finish everyone sees.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
 
 
 
