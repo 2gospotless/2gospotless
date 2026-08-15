@@ -644,14 +644,32 @@ h1 {
 
 .current-selection {
 
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 14px;
+
   padding:
-    17px 22px 20px;
+    15px 22px 17px;
 
   border-top:
     1px solid rgba(255, 255, 255, 0.13);
 
   background:
     rgba(0, 0, 0, 0.35);
+}
+
+
+/* LEFT SIDE OF CURRENT SELECTION */
+
+.current-selection-text {
+
+  min-width: 0;
+
+  flex: 1;
 }
 
 .current-label {
@@ -681,6 +699,67 @@ h1 {
   letter-spacing: 0.11em;
 
   text-transform: uppercase;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   BLUEPRINT IMAGE
+   ========================================================= */
+
+.blueprint-preview {
+
+  flex: 0 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 78px;
+  height: 58px;
+
+  padding: 3px;
+
+  border:
+    1px solid rgba(255, 212, 0, 0.25);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  overflow: hidden;
+
+  opacity: 1;
+
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    border-color 220ms ease;
+}
+
+.blueprint-preview.is-changing {
+
+  opacity: 0;
+
+  transform:
+    scale(0.88);
+}
+
+.blueprint-preview img {
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0 5px
+      rgba(255, 212, 0, 0.16)
+    );
 }
 
 
@@ -911,16 +990,47 @@ h1 {
     letter-spacing: 0.09em;
   }
 
+
+  /* CURRENTLY SELECTED MOBILE */
+
   .current-selection {
 
     padding:
-      14px 16px 16px;
+      13px 14px 14px;
+
+    gap: 10px;
+  }
+
+  .current-label {
+
+    font-size: 0.46rem;
+
+    letter-spacing: 0.14em;
   }
 
   .current-value {
 
-    font-size: 0.67rem;
+    margin-top: 6px;
+
+    font-size: 0.61rem;
+
+    letter-spacing: 0.07em;
+
+    line-height: 1.2;
   }
+
+
+  /* SMALL BLUEPRINT ON MOBILE */
+
+  .blueprint-preview {
+
+    width: 68px;
+
+    height: 51px;
+
+    padding: 2px;
+  }
+
 
   .menu-footer {
 
@@ -929,6 +1039,35 @@ h1 {
 
     font-size: 0.42rem;
   }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .current-selection {
+
+    gap: 7px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .blueprint-preview {
+
+    width: 60px;
+
+    height: 46px;
+  }
+
+  .current-value {
+
+    font-size: 0.56rem;
+  }
+
 }
 
 
@@ -973,11 +1112,13 @@ h1 {
     href="index.html"
     aria-label="2GoSpotless home"
   >
+
     <img
       class="logo"
       src="./assets/logo.png"
       alt="2GoSpotless logo"
     >
+
   </a>
 
 </header>
@@ -1019,7 +1160,9 @@ h1 {
   >
 
 
-    <!-- CAR IMAGE -->
+    <!-- =================================================
+         CAR IMAGE
+         ================================================= -->
 
     <div class="image-panel">
 
@@ -1037,7 +1180,9 @@ h1 {
     </div>
 
 
-    <!-- GTA STYLE MENU -->
+    <!-- =================================================
+         GTA STYLE MENU
+         ================================================= -->
 
     <div class="menu-area">
 
@@ -1069,7 +1214,9 @@ h1 {
         </div>
 
 
-        <!-- MENU OPTIONS -->
+        <!-- =================================================
+             MENU OPTIONS
+             ================================================= -->
 
         <div class="menu-options">
 
@@ -1084,6 +1231,8 @@ h1 {
             data-number="01"
 
             data-image="assets/bronze.jpg"
+
+            data-blueprint="assets/INOUTBLUEPRINT.png"
 
             data-alt="In and Out Bronze detailing package"
 
@@ -1124,6 +1273,8 @@ h1 {
 
             data-image="assets/silver.jpg"
 
+            data-blueprint="assets/PARTIALBLUEPRINT.png"
+
             data-alt="Partial Shampoo Silver detailing package"
 
             aria-pressed="false"
@@ -1162,6 +1313,8 @@ h1 {
             data-number="03"
 
             data-image="assets/presidential.jpg"
+
+            data-blueprint="assets/FULLBLUEPRINT.png"
 
             data-alt="Full Shampoo Presidential detailing package"
 
@@ -1202,6 +1355,8 @@ h1 {
 
             data-image="assets/engine.png"
 
+            data-blueprint=""
+
             data-alt="Engine cleaning service"
 
             aria-pressed="false"
@@ -1233,25 +1388,54 @@ h1 {
         </div>
 
 
-        <!-- CURRENTLY SELECTED -->
+        <!-- =================================================
+             CURRENTLY SELECTED
+             ================================================= -->
 
         <div class="current-selection">
 
-          <div class="current-label">
-            Currently Selected
+
+          <!-- TEXT -->
+
+          <div class="current-selection-text">
+
+            <div class="current-label">
+              Currently Selected
+            </div>
+
+            <div
+              id="selected-name"
+              class="current-value"
+            >
+              IN/OUT [BRONZE]
+            </div>
+
           </div>
 
+
+          <!-- BLUEPRINT -->
+
           <div
-            id="selected-name"
-            class="current-value"
+            id="blueprint-preview"
+            class="blueprint-preview"
+            aria-hidden="true"
           >
-            IN/OUT [BRONZE]
+
+            <img
+              id="blueprint-image"
+              src="assets/INOUTBLUEPRINT.png"
+              alt=""
+            >
+
           </div>
+
 
         </div>
 
 
-        <!-- FOOTER -->
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
 
         <div class="menu-footer">
 
@@ -1287,6 +1471,10 @@ document.addEventListener(
   () => {
 
 
+    /* =====================================================
+       ELEMENTS
+       ===================================================== */
+
     const image =
       document.getElementById(
         "package-image"
@@ -1299,11 +1487,27 @@ document.addEventListener(
       );
 
 
+    const blueprintPreview =
+      document.getElementById(
+        "blueprint-preview"
+      );
+
+
+    const blueprintImage =
+      document.getElementById(
+        "blueprint-image"
+      );
+
+
     const packageOptions =
       document.querySelectorAll(
         ".menu-option"
       );
 
+
+    /* =====================================================
+       SELECT PACKAGE
+       ===================================================== */
 
     function selectPackage(option) {
 
@@ -1320,9 +1524,13 @@ document.addEventListener(
         option.dataset.alt;
 
 
-      /*
-       * Update selected menu item
-       */
+      const blueprintPath =
+        option.dataset.blueprint;
+
+
+      /* ================================================
+         UPDATE ACTIVE MENU ITEM
+         ================================================ */
 
       packageOptions.forEach(
         (item) => {
@@ -1346,27 +1554,22 @@ document.addEventListener(
       );
 
 
-      /*
-       * Update current selection
-       */
+      /* ================================================
+         UPDATE CURRENT SELECTION TEXT
+         ================================================ */
 
       selectedName.textContent =
         packageName;
 
 
-      /*
-       * Fade image out
-       */
+      /* ================================================
+         CHANGE MAIN IMAGE
+         ================================================ */
 
       image.classList.add(
         "is-changing"
       );
 
-
-      /*
-       * Change image after
-       * short animation
-       */
 
       window.setTimeout(
         () => {
@@ -1377,10 +1580,6 @@ document.addEventListener(
           image.alt =
             imageAlt;
 
-
-          /*
-           * Fade image back in
-           */
 
           const showImage =
             () => {
@@ -1401,11 +1600,6 @@ document.addEventListener(
           );
 
 
-          /*
-           * Prevent image staying
-           * invisible if cached
-           */
-
           if (image.complete) {
 
             image.classList.remove(
@@ -1418,12 +1612,103 @@ document.addEventListener(
         180
       );
 
+
+      /* ================================================
+         CHANGE BLUEPRINT
+         ================================================ */
+
+      blueprintPreview.classList.add(
+        "is-changing"
+      );
+
+
+      window.setTimeout(
+        () => {
+
+
+          /*
+           * ENGINE CLEAN DOES NOT HAVE
+           * A BLUEPRINT IMAGE
+           */
+
+          if (!blueprintPath) {
+
+            blueprintImage.removeAttribute(
+              "src"
+            );
+
+            blueprintPreview.style.display =
+              "none";
+
+            blueprintPreview.classList.remove(
+              "is-changing"
+            );
+
+            return;
+          }
+
+
+          /*
+           * Show blueprint container
+           */
+
+          blueprintPreview.style.display =
+            "flex";
+
+
+          /*
+           * Set new blueprint
+           */
+
+          blueprintImage.src =
+            blueprintPath;
+
+
+          /*
+           * Fade blueprint back in
+           */
+
+          const showBlueprint =
+            () => {
+
+              blueprintPreview.classList.remove(
+                "is-changing"
+              );
+
+            };
+
+
+          blueprintImage.addEventListener(
+            "load",
+            showBlueprint,
+            {
+              once: true
+            }
+          );
+
+
+          /*
+           * Cached image fallback
+           */
+
+          if (blueprintImage.complete) {
+
+            blueprintPreview.classList.remove(
+              "is-changing"
+            );
+
+          }
+
+        },
+        160
+      );
+
     }
 
 
-    /*
-     * Click controls
-     */
+    /* =====================================================
+       CLICK CONTROLS
+       ===================================================== */
 
     packageOptions.forEach(
       (option) => {
@@ -1441,9 +1726,9 @@ document.addEventListener(
         );
 
 
-        /*
-         * Keyboard controls
-         */
+        /* ================================================
+           KEYBOARD CONTROLS
+           ================================================ */
 
         option.addEventListener(
           "keydown",
@@ -1465,9 +1750,9 @@ document.addEventListener(
             }
 
 
-            /*
-             * Arrow navigation
-             */
+            /* ============================================
+               ARROW DOWN / RIGHT
+               ============================================ */
 
             if (
               event.key === "ArrowDown" ||
@@ -1501,6 +1786,10 @@ document.addEventListener(
 
             }
 
+
+            /* ============================================
+               ARROW UP / LEFT
+               ============================================ */
 
             if (
               event.key === "ArrowUp" ||
@@ -1553,3 +1842,5 @@ document.addEventListener(
 
 </body>
 </html>
+
+
