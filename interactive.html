@@ -10,11 +10,6 @@
 
 <style>
 
-/* =========================================================
-   2GOSPOTLESS DETAIL GARAGE
-   GTA / LOS SANTOS CUSTOMS INSPIRED MENU
-   ========================================================= */
-
 :root {
   --yellow: #ffd400;
   --yellow-soft: rgba(255, 212, 0, 0.16);
@@ -43,7 +38,6 @@ html {
 
 body {
   min-height: 100vh;
-
   color: #fff;
 
   font-family:
@@ -342,9 +336,6 @@ h1 {
   min-width: 0;
 }
 
-
-/* Main menu box */
-
 .gta-menu {
 
   position: relative;
@@ -367,9 +358,6 @@ h1 {
 
   overflow: hidden;
 }
-
-
-/* Yellow top edge */
 
 .gta-menu::before {
 
@@ -408,9 +396,6 @@ h1 {
     rgba(255, 255, 255, 0.025);
 }
 
-
-/* Small company logo */
-
 .menu-logo {
 
   position: absolute;
@@ -432,9 +417,6 @@ h1 {
       rgba(0, 0, 0, 0.5)
     );
 }
-
-
-/* Menu title */
 
 .menu-title {
 
@@ -519,9 +501,6 @@ h1 {
   border-bottom: none;
 }
 
-
-/* Number */
-
 .menu-number {
 
   display: flex;
@@ -540,9 +519,6 @@ h1 {
 
   letter-spacing: 0.08em;
 }
-
-
-/* Service text */
 
 .menu-service {
 
@@ -586,9 +562,6 @@ h1 {
 
   text-transform: uppercase;
 }
-
-
-/* Arrow */
 
 .menu-arrow {
 
@@ -1016,9 +989,6 @@ h1 {
 
 <main>
 
-
-  <!-- PAGE TITLE -->
-
   <section
     class="page-heading"
     aria-labelledby="garage-title"
@@ -1049,9 +1019,7 @@ h1 {
   >
 
 
-    <!-- ================================================
-         CAR IMAGE
-         ================================================ -->
+    <!-- CAR IMAGE -->
 
     <div class="image-panel">
 
@@ -1069,9 +1037,7 @@ h1 {
     </div>
 
 
-    <!-- ================================================
-         GTA STYLE MENU
-         ================================================ -->
+    <!-- GTA STYLE MENU -->
 
     <div class="menu-area">
 
@@ -1108,7 +1074,7 @@ h1 {
         <div class="menu-options">
 
 
-          <!-- 01 -->
+          <!-- 01 — BRONZE -->
 
           <button
             class="menu-option is-active"
@@ -1147,7 +1113,7 @@ h1 {
           </button>
 
 
-          <!-- 02 -->
+          <!-- 02 — SILVER -->
 
           <button
             class="menu-option"
@@ -1186,7 +1152,7 @@ h1 {
           </button>
 
 
-          <!-- 03 -->
+          <!-- 03 — PRESIDENTIAL -->
 
           <button
             class="menu-option"
@@ -1214,6 +1180,45 @@ h1 {
 
               <span class="service-tier">
                 Luxury finish
+              </span>
+
+            </span>
+
+            <span class="menu-arrow">
+              ›
+            </span>
+
+          </button>
+
+
+          <!-- 04 — ENGINE CLEAN -->
+
+          <button
+            class="menu-option"
+            type="button"
+
+            data-package="ENGINE CLEAN"
+            data-number="04"
+
+            data-image="assets/engine.png"
+
+            data-alt="Engine cleaning service"
+
+            aria-pressed="false"
+          >
+
+            <span class="menu-number">
+              04
+            </span>
+
+            <span class="menu-service">
+
+              <span class="service-name">
+                ENGINE CLEAN
+              </span>
+
+              <span class="service-tier">
+                Dedicated service
               </span>
 
             </span>
@@ -1305,10 +1310,6 @@ document.addEventListener(
 
       const packageName =
         option.dataset.package;
-
-
-      const packageNumber =
-        option.dataset.number;
 
 
       const imagePath =
