@@ -1,643 +1,1554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080808">
+
 <title>2GoSpotless | Detail Garage</title>
 
 <style>
+
+/* =========================================================
+   2GOSPOTLESS DETAIL GARAGE
+   GTA / LOS SANTOS CUSTOMS INSPIRED MENU
+   ========================================================= */
+
 :root {
---gold: #ffd400;
---gold-soft: rgba(255, 212, 0, 0.18);
---gold-glow: rgba(255, 212, 0, 0.34);
---black: #050505;
---panel: rgba(10, 10, 10, 0.84);
---line: rgba(255, 255, 255, 0.16);
---text: rgba(255, 255, 255, 0.72);
+  --yellow: #ffd400;
+  --yellow-soft: rgba(255, 212, 0, 0.16);
+  --yellow-glow: rgba(255, 212, 0, 0.32);
+
+  --black: #050505;
+  --panel: rgba(8, 8, 8, 0.92);
+
+  --white: #ffffff;
+  --text: rgba(255, 255, 255, 0.78);
+  --muted: rgba(255, 255, 255, 0.45);
+
+  --line: rgba(255, 255, 255, 0.14);
 }
 
 * {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-min-height: 100%;
-background: var(--black);
+  min-height: 100%;
+  background: var(--black);
 }
 
 body {
-min-height: 100vh;
-color: #fff;
-font-family: Arial, Helvetica, sans-serif;
-background:
-linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-url("assets/garage.jpg");
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
-overflow-x: hidden;
+  min-height: 100vh;
+
+  color: #fff;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.57),
+      rgba(0, 0, 0, 0.57)
+    ),
+    url("assets/garage.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  overflow-x: hidden;
 }
 
-a,
-button {
-font: inherit;
-}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .site-header {
-position: relative;
-z-index: 10;
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 82px;
-padding: 14px 24px;
-background: rgba(0, 0, 0, 0.94);
-border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 82px;
+
+  padding: 14px 24px;
+
+  background: rgba(0, 0, 0, 0.94);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
 }
 
 .logo {
-display: block;
-height: 50px;
-width: auto;
-object-fit: contain;
+  display: block;
+
+  height: 50px;
+  width: auto;
+
+  object-fit: contain;
 }
 
 .back-link {
-position: absolute;
-left: 24px;
-top: 50%;
-display: inline-flex;
-align-items: center;
-min-height: 38px;
-padding: 0 14px;
-color: rgba(255, 255, 255, 0.84);
-border: 1px solid rgba(255, 255, 255, 0.28);
-background: rgba(0, 0, 0, 0.38);
-text-decoration: none;
-font-size: 0.72rem;
-font-weight: 700;
-letter-spacing: 0.13em;
-transform: translateY(-50%);
-transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+  position: absolute;
+
+  left: 24px;
+  top: 50%;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  color: rgba(255, 255, 255, 0.84);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.28);
+
+  background: rgba(0, 0, 0, 0.38);
+
+  text-decoration: none;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+
+  transform: translateY(-50%);
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
 }
 
 .back-link:hover,
 .back-link:focus-visible {
-color: var(--gold);
-border-color: var(--gold);
-background: rgba(255, 212, 0, 0.08);
-outline: none;
+  color: var(--yellow);
+
+  border-color: var(--yellow);
+
+  background:
+    rgba(255, 212, 0, 0.08);
+
+  outline: none;
 }
 
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
 main {
-width: min(1180px, calc(100% - 40px));
-margin: 0 auto;
-padding: 58px 0 72px;
+  width: min(1250px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding: 48px 0 70px;
 }
 
 .page-heading {
-margin-bottom: 34px;
-text-align: center;
+  margin-bottom: 28px;
+
+  text-align: center;
 }
 
 .eyebrow {
-margin-bottom: 9px;
-color: var(--gold);
-font-size: 0.7rem;
-font-weight: 700;
-letter-spacing: 0.34em;
+  margin-bottom: 9px;
+
+  color: var(--yellow);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.34em;
 }
 
 h1 {
-color: #fff;
-font-size: clamp(2rem, 5vw, 3.8rem);
-font-weight: 800;
-letter-spacing: 0.12em;
-line-height: 1;
-text-shadow: 0 3px 18px rgba(0, 0, 0, 0.65);
+  color: #fff;
+
+  font-size:
+    clamp(2rem, 5vw, 3.8rem);
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+
+  line-height: 1;
+
+  text-shadow:
+    0 3px 18px rgba(0, 0, 0, 0.65);
 }
 
 .subtitle {
-margin-top: 13px;
-color: rgba(255, 255, 255, 0.68);
-font-size: 0.78rem;
-letter-spacing: 0.3em;
-text-transform: uppercase;
+  margin-top: 13px;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
 }
+
+
+/* =========================================================
+   MAIN GARAGE AREA
+   ========================================================= */
 
 .garage-layout {
-display: grid;
-grid-template-columns: minmax(0, 1.25fr) minmax(380px, 0.9fr);
-align-items: center;
-gap: 30px;
-width: 100%;
-margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(350px, 0.65fr);
+
+  align-items: center;
+
+  gap: 34px;
+
+  width: 100%;
 }
 
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
 .image-panel {
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 510px;
-padding: 22px;
-overflow: hidden;
-background: rgba(4, 4, 4, 0.78);
-border: 1px solid rgba(255, 255, 255, 0.24);
-box-shadow: 0 20px 55px rgba(0, 0, 0, 0.5);
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 540px;
+
+  padding: 22px;
+
+  overflow: hidden;
+
+  background:
+    rgba(4, 4, 4, 0.74);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.20);
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.55);
 }
 
 .image-panel::before,
 .image-panel::after {
-position: absolute;
-width: 54px;
-height: 54px;
-content: "";
-pointer-events: none;
+
+  position: absolute;
+
+  width: 54px;
+  height: 54px;
+
+  content: "";
+
+  pointer-events: none;
 }
 
 .image-panel::before {
-top: 11px;
-left: 11px;
-border-top: 1px solid var(--gold);
-border-left: 1px solid var(--gold);
+
+  top: 11px;
+  left: 11px;
+
+  border-top:
+    1px solid var(--yellow);
+
+  border-left:
+    1px solid var(--yellow);
 }
 
 .image-panel::after {
-right: 11px;
-bottom: 11px;
-border-right: 1px solid var(--gold);
-border-bottom: 1px solid var(--gold);
+
+  right: 11px;
+  bottom: 11px;
+
+  border-right:
+    1px solid var(--yellow);
+
+  border-bottom:
+    1px solid var(--yellow);
 }
 
 .package-image {
-display: block;
-width: 100%;
-height: 465px;
-object-fit: contain;
-opacity: 1;
-transition: opacity 320ms ease;
+
+  display: block;
+
+  width: 100%;
+  height: 500px;
+
+  object-fit: contain;
+
+  opacity: 1;
+
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease;
 }
 
 .package-image.is-changing {
-opacity: 0;
+  opacity: 0;
+  transform: scale(0.985);
 }
 
 .image-label {
-position: absolute;
-right: 28px;
-bottom: 25px;
-color: rgba(255, 255, 255, 0.58);
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
+
+  position: absolute;
+
+  right: 28px;
+  bottom: 25px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
 }
 
-.wheel-area {
-display: flex;
-align-items: center;
-justify-content: center;
-min-width: 0;
+
+/* =========================================================
+   GTA STYLE MENU
+   ========================================================= */
+
+.menu-area {
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
 }
 
-.wheel {
-position: relative;
-width: min(510px, 100%);
-aspect-ratio: 1;
-filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.5));
+
+/* Main menu box */
+
+.gta-menu {
+
+  position: relative;
+
+  width: 100%;
+  max-width: 470px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 8, 8, 0.97),
+      rgba(16, 16, 16, 0.94)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.65);
+
+  overflow: hidden;
 }
 
-.wheel::before {
-position: absolute;
-inset: 2%;
-border: 1px solid rgba(255, 255, 255, 0.26);
-border-radius: 50%;
-background:
-radial-gradient(circle, transparent 0 27%, rgba(255, 255, 255, 0.04) 27.2% 27.7%, transparent 28%),
-radial-gradient(circle at center, rgba(10, 10, 10, 0.88), rgba(5, 5, 5, 0.95));
-box-shadow:
-inset 0 0 45px rgba(0, 0, 0, 0.95),
-0 0 0 10px rgba(0, 0, 0, 0.2);
-content: "";
+
+/* Yellow top edge */
+
+.gta-menu::before {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    var(--yellow);
+
+  content: "";
 }
 
-.wheel::after {
-position: absolute;
-inset: 14%;
-border: 1px solid rgba(255, 255, 255, 0.08);
-border-radius: 50%;
-content: "";
-pointer-events: none;
+
+/* =========================================================
+   MENU HEADER
+   ========================================================= */
+
+.menu-header {
+
+  position: relative;
+
+  min-height: 86px;
+
+  padding:
+    17px 22px 15px 86px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  background:
+    rgba(255, 255, 255, 0.025);
 }
 
-.package-option {
-position: absolute;
-z-index: 2;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 30%;
-aspect-ratio: 1;
-color: rgba(255, 255, 255, 0.7);
-cursor: pointer;
-border: 1px solid rgba(255, 255, 255, 0.24);
-border-radius: 50%;
-background:
-radial-gradient(circle at 30% 30%, rgba(70, 70, 70, 0.9), rgba(10, 10, 10, 0.96));
-box-shadow:
-inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-0 6px 22px rgba(0, 0, 0, 0.42);
-transition:
-transform 180ms ease,
-border-color 180ms ease,
-box-shadow 180ms ease,
-color 180ms ease,
-background 180ms ease;
-text-align: center;
+
+/* Small company logo */
+
+.menu-logo {
+
+  position: absolute;
+
+  left: 20px;
+  top: 50%;
+
+  width: 50px;
+  height: 50px;
+
+  object-fit: contain;
+
+  transform:
+    translateY(-50%);
+
+  filter:
+    drop-shadow(
+      0 3px 8px
+      rgba(0, 0, 0, 0.5)
+    );
 }
 
-.package-option:hover,
-.package-option:focus-visible {
-transform: translateY(-3px) scale(1.02);
-outline: none;
-border-color: rgba(255, 255, 255, 0.45);
+
+/* Menu title */
+
+.menu-title {
+
+  color: #fff;
+
+  font-size: 0.95rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
 }
 
-.package-option.is-active {
-color: var(--gold);
-border-color: var(--gold);
-background:
-radial-gradient(circle at 30% 30%, rgba(110, 92, 0, 0.95), rgba(12, 12, 8, 0.98));
-box-shadow:
-0 0 0 1px rgba(255, 212, 0, 0.35),
-0 0 18px rgba(255, 212, 0, 0.22),
-inset 0 0 24px rgba(255, 212, 0, 0.08);
+.menu-subtitle {
+
+  margin-top: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.43);
+
+  font-size: 0.58rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
 }
 
-.package-option.is-active::after {
-position: absolute;
-inset: 5px;
-border: 1px solid rgba(255, 212, 0, 0.4);
-border-radius: 50%;
-content: "";
-pointer-events: none;
+
+/* =========================================================
+   MENU OPTIONS
+   ========================================================= */
+
+.menu-options {
+
+  padding: 10px 0;
 }
 
-.bronze-option {
-left: 4%;
-top: 42%;
+.menu-option {
+
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    58px
+    1fr
+    38px;
+
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 72px;
+
+  padding: 0 18px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  background:
+    transparent;
+
+  border: none;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    padding 160ms ease;
 }
 
-.silver-option {
-right: 12%;
-top: 10%;
+.menu-option:last-child {
+  border-bottom: none;
 }
 
-.presidential-option {
-right: 8%;
-bottom: 8%;
+
+/* Number */
+
+.menu-number {
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
 }
 
-.package-inner {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 5px;
-width: 100%;
-height: 100%;
-padding: 14px;
+
+/* Service text */
+
+.menu-service {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 4px;
+
+  min-width: 0;
 }
 
-.package-number {
-color: rgba(255, 255, 255, 0.48);
-font-size: 0.58rem;
-font-weight: 700;
-letter-spacing: 0.18em;
+.service-name {
+
+  color: inherit;
+
+  font-size:
+    clamp(0.76rem, 1.4vw, 0.92rem);
+
+  font-weight: 800;
+
+  letter-spacing: 0.10em;
+
+  line-height: 1.15;
+
+  white-space: nowrap;
 }
 
-.package-option.is-active .package-number {
-color: rgba(255, 212, 0, 0.75);
+.service-tier {
+
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  font-size: 0.53rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
 }
 
-.package-name {
-font-size: clamp(0.72rem, 1.35vw, 0.96rem);
-font-weight: 800;
-letter-spacing: 0.13em;
-line-height: 1.1;
+
+/* Arrow */
+
+.menu-arrow {
+
+  color:
+    rgba(255, 255, 255, 0.25);
+
+  font-size: 1.1rem;
+
+  text-align: right;
+
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
 }
 
-.package-caption {
-color: rgba(255, 255, 255, 0.44);
-font-size: 0.5rem;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-line-height: 1.2;
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.menu-option:hover {
+
+  color: #fff;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  padding-left: 5px;
 }
 
-.center-display {
-position: absolute;
-z-index: 5;
-top: 50%;
-left: 50%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 31%;
-aspect-ratio: 1;
-padding: 15px;
-text-align: center;
-border: 1px solid rgba(255, 212, 0, 0.68);
-border-radius: 50%;
-background:
-radial-gradient(circle, rgba(54, 45, 0, 0.5), rgba(7, 7, 7, 0.97) 67%);
-box-shadow:
-inset 0 0 25px rgba(255, 212, 0, 0.13),
-0 0 22px rgba(255, 212, 0, 0.2);
-transform: translate(-50%, -50%);
+.menu-option:hover .menu-arrow {
+
+  color: var(--yellow);
+
+  transform: translateX(3px);
 }
 
-.center-display::before {
-position: absolute;
-inset: 8px;
-border: 1px solid rgba(255, 255, 255, 0.14);
-border-radius: 50%;
-content: "";
+
+/* =========================================================
+   ACTIVE GTA STYLE
+   ========================================================= */
+
+.menu-option.is-active {
+
+  color: #111;
+
+  background:
+    var(--yellow);
+
+  box-shadow:
+    inset 5px 0 0 #fff;
+
+  padding-left: 5px;
 }
 
-.center-label {
-position: relative;
-z-index: 1;
-color: rgba(255, 255, 255, 0.5);
-font-size: clamp(0.38rem, 1vw, 0.52rem);
-font-weight: 700;
-letter-spacing: 0.11em;
-line-height: 1.25;
+.menu-option.is-active .menu-number {
+
+  color:
+    rgba(0, 0, 0, 0.55);
 }
 
-.selected-name {
-position: relative;
-z-index: 1;
-margin-top: 8px;
-color: var(--gold);
-font-size: clamp(0.72rem, 1.7vw, 1rem);
-font-weight: 800;
-letter-spacing: 0.1em;
-line-height: 1.1;
+.menu-option.is-active .service-tier {
+
+  color:
+    rgba(0, 0, 0, 0.55);
 }
 
-.selected-number {
-position: relative;
-z-index: 1;
-margin-top: 7px;
-color: rgba(255, 255, 255, 0.42);
-font-size: 0.58rem;
-letter-spacing: 0.2em;
+.menu-option.is-active .menu-arrow {
+
+  color: #111;
+
+  transform:
+    translateX(2px);
 }
+
+
+/* =========================================================
+   CURRENTLY SELECTED
+   ========================================================= */
+
+.current-selection {
+
+  padding:
+    17px 22px 20px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  background:
+    rgba(0, 0, 0, 0.35);
+}
+
+.current-label {
+
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  font-size: 0.52rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.current-value {
+
+  margin-top: 7px;
+
+  color: var(--yellow);
+
+  font-size: 0.8rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MENU FOOTER
+   ========================================================= */
+
+.menu-footer {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    11px 18px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  color:
+    rgba(255, 255, 255, 0.28);
+
+  font-size: 0.48rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.menu-footer span:last-child {
+
+  color:
+    rgba(255, 212, 0, 0.48);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 900px) {
-main {
-width: min(680px, calc(100% - 32px));
-padding-top: 42px;
+
+  main {
+
+    width:
+      min(700px, calc(100% - 32px));
+
+    padding-top: 40px;
+  }
+
+  .garage-layout {
+
+    grid-template-columns: 1fr;
+
+    gap: 26px;
+  }
+
+  .image-panel {
+
+    min-height: 430px;
+  }
+
+  .package-image {
+
+    height: 390px;
+  }
+
+  .gta-menu {
+
+    max-width: 600px;
+  }
 }
 
-.garage-layout {
-grid-template-columns: 1fr;
-gap: 26px;
-}
 
-.image-panel {
-min-height: 430px;
-}
-
-.package-image {
-height: 390px;
-}
-
-.wheel {
-width: min(460px, 100%);
-}
-}
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 560px) {
-.site-header {
-min-height: 76px;
-padding: 14px 12px;
+
+  .site-header {
+
+    min-height: 76px;
+
+    padding:
+      14px 12px;
+  }
+
+  .logo {
+
+    height: 43px;
+
+    max-width: 145px;
+  }
+
+  .back-link {
+
+    left: 10px;
+
+    min-height: 32px;
+
+    padding:
+      0 8px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.08em;
+  }
+
+  main {
+
+    width:
+      calc(100% - 22px);
+
+    padding:
+      34px 0 46px;
+  }
+
+  .page-heading {
+
+    margin-bottom: 22px;
+  }
+
+  h1 {
+
+    font-size:
+      clamp(1.55rem, 8vw, 2.3rem);
+
+    letter-spacing: 0.08em;
+  }
+
+  .subtitle {
+
+    margin-top: 10px;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.16em;
+  }
+
+  .image-panel {
+
+    min-height: 285px;
+
+    padding: 12px;
+  }
+
+  .package-image {
+
+    height: 255px;
+  }
+
+  .image-label {
+
+    right: 17px;
+    bottom: 14px;
+
+    font-size: 0.48rem;
+  }
+
+  .gta-menu {
+
+    width: 100%;
+  }
+
+  .menu-header {
+
+    min-height: 76px;
+
+    padding:
+      14px 15px 13px 72px;
+  }
+
+  .menu-logo {
+
+    left: 16px;
+
+    width: 43px;
+    height: 43px;
+  }
+
+  .menu-title {
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.13em;
+  }
+
+  .menu-subtitle {
+
+    font-size: 0.48rem;
+
+    letter-spacing: 0.13em;
+  }
+
+  .menu-option {
+
+    grid-template-columns:
+      49px
+      1fr
+      28px;
+
+    min-height: 67px;
+
+    padding-right: 13px;
+  }
+
+  .menu-number {
+
+    font-size: 0.59rem;
+  }
+
+  .service-name {
+
+    font-size: 0.69rem;
+
+    letter-spacing: 0.07em;
+  }
+
+  .service-tier {
+
+    font-size: 0.46rem;
+
+    letter-spacing: 0.09em;
+  }
+
+  .current-selection {
+
+    padding:
+      14px 16px 16px;
+  }
+
+  .current-value {
+
+    font-size: 0.67rem;
+  }
+
+  .menu-footer {
+
+    padding:
+      10px 14px;
+
+    font-size: 0.42rem;
+  }
 }
 
-.logo {
-height: 43px;
-max-width: 145px;
-}
 
-.back-link {
-left: 10px;
-min-height: 32px;
-padding: 0 8px;
-font-size: 0.57rem;
-letter-spacing: 0.08em;
-}
-
-main {
-width: calc(100% - 22px);
-padding: 34px 0 46px;
-}
-
-.page-heading {
-margin-bottom: 24px;
-}
-
-h1 {
-font-size: clamp(1.55rem, 8vw, 2.3rem);
-letter-spacing: 0.08em;
-}
-
-.subtitle {
-margin-top: 10px;
-font-size: 0.62rem;
-letter-spacing: 0.2em;
-}
-
-.image-panel {
-min-height: 285px;
-padding: 12px;
-}
-
-.package-image {
-height: 255px;
-}
-
-.image-label {
-right: 17px;
-bottom: 14px;
-font-size: 0.52rem;
-}
-
-.wheel {
-width: min(100%, 400px);
-}
-
-.package-option {
-width: 31%;
-}
-
-.package-inner {
-padding: 10px;
-}
-
-.package-number {
-font-size: 0.48rem;
-}
-
-.package-name {
-font-size: clamp(0.55rem, 2.4vw, 0.75rem);
-}
-
-.package-caption {
-font-size: 0.4rem;
-}
-
-.center-label {
-font-size: 0.36rem;
-}
-
-.selected-name {
-font-size: clamp(0.58rem, 2.4vw, 0.78rem);
-}
-
-.selected-number {
-font-size: 0.45rem;
-}
-}
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-*,
-*::before,
-*::after {
-scroll-behavior: auto !important;
-transition-duration: 0.01ms !important;
+
+  *,
+  *::before,
+  *::after {
+
+    transition-duration:
+      0.01ms !important;
+  }
 }
-}
+
 </style>
+
 </head>
+
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
 <header class="site-header">
-<a class="back-link" href="index.html" aria-label="Back to main page">← BACK TO MAIN PAGE</a>
-<a href="index.html" aria-label="2GoSpotless home">
-<img class="logo" src="./assets/logo.png" alt="2GoSpotless logo">
-</a>
+
+  <a
+    class="back-link"
+    href="index.html"
+    aria-label="Back to main page"
+  >
+    ← BACK TO MAIN PAGE
+  </a>
+
+  <a
+    href="index.html"
+    aria-label="2GoSpotless home"
+  >
+    <img
+      class="logo"
+      src="./assets/logo.png"
+      alt="2GoSpotless logo"
+    >
+  </a>
+
 </header>
 
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
 <main>
-<section class="page-heading" aria-labelledby="garage-title">
-<p class="eyebrow">2GOSPOTLESS GARAGE</p>
-<h1 id="garage-title">HIGHLIGHTED VISUALS</h1>
-<p class="subtitle">SEE WHAT YOUR PACKAGE GETS SHAMPOO'D</p>
-</section>
 
-<section class="garage-layout" aria-label="Detailing package selector">
-<div class="image-panel">
-<img
-id="package-image"
-class="package-image"
-src="assets/bronze.jpg"
-alt="Bronze detailing package"
->
-<span class="image-label">Vehicle detailing selection</span>
-</div>
 
-<div class="wheel-area">
-<div class="wheel" role="group" aria-label="Choose a detailing package">
-<button class="package-option bronze-option is-active" type="button" data-package="BRONZE" data-number="01" data-image="assets/bronze.jpg" data-alt="Bronze detailing package" aria-pressed="true">
-<div class="package-inner">
-<span class="package-number">01</span>
-<span class="package-name">BRONZE</span>
-<span class="package-caption">Essential finish</span>
-</div>
-</button>
+  <!-- PAGE TITLE -->
 
-<button class="package-option silver-option" type="button" data-package="SILVER" data-number="02" data-image="assets/silver.jpg" data-alt="Silver detailing package" aria-pressed="false">
-<div class="package-inner">
-<span class="package-number">02</span>
-<span class="package-name">SILVER</span>
-<span class="package-caption">Enhanced finish</span>
-</div>
-</button>
+  <section
+    class="page-heading"
+    aria-labelledby="garage-title"
+  >
 
-<button class="package-option presidential-option" type="button" data-package="PRESIDENTIAL" data-number="03" data-image="assets/presidential.jpg" data-alt="Presidential detailing package" aria-pressed="false">
-<div class="package-inner">
-<span class="package-number">03</span>
-<span class="package-name">PRESIDENTIAL</span>
-<span class="package-caption">Luxury finish</span>
-</div>
-</button>
+    <p class="eyebrow">
+      2GOSPOTLESS GARAGE
+    </p>
 
-<div class="center-display" aria-live="polite">
-<span class="center-label">CURRENTLY SELECTED</span>
-<span id="selected-name" class="selected-name">BRONZE</span>
-<span id="selected-number" class="selected-number">01</span>
-</div>
-</div>
-</div>
-</section>
+    <h1 id="garage-title">
+      HIGHLIGHTED VISUALS
+    </h1>
+
+    <p class="subtitle">
+      SEE WHAT YOUR PACKAGE GETS SHAMPOO'D
+    </p>
+
+  </section>
+
+
+  <!-- ===================================================
+       GARAGE
+       =================================================== -->
+
+  <section
+    class="garage-layout"
+    aria-label="Detailing package selector"
+  >
+
+
+    <!-- ================================================
+         CAR IMAGE
+         ================================================ -->
+
+    <div class="image-panel">
+
+      <img
+        id="package-image"
+        class="package-image"
+        src="assets/bronze.jpg"
+        alt="In and Out Bronze detailing package"
+      >
+
+      <span class="image-label">
+        Vehicle detailing selection
+      </span>
+
+    </div>
+
+
+    <!-- ================================================
+         GTA STYLE MENU
+         ================================================ -->
+
+    <div class="menu-area">
+
+      <div
+        class="gta-menu"
+        role="group"
+        aria-label="Choose a detailing package"
+      >
+
+
+        <!-- MENU HEADER -->
+
+        <div class="menu-header">
+
+          <img
+            class="menu-logo"
+            src="./assets/logo.png"
+            alt="2GoSpotless"
+          >
+
+          <div class="menu-title">
+            DETAIL GARAGE
+          </div>
+
+          <div class="menu-subtitle">
+            SELECT YOUR DETAILING PACKAGE
+          </div>
+
+        </div>
+
+
+        <!-- MENU OPTIONS -->
+
+        <div class="menu-options">
+
+
+          <!-- 01 -->
+
+          <button
+            class="menu-option is-active"
+            type="button"
+
+            data-package="IN/OUT [BRONZE]"
+            data-number="01"
+
+            data-image="assets/bronze.jpg"
+
+            data-alt="In and Out Bronze detailing package"
+
+            aria-pressed="true"
+          >
+
+            <span class="menu-number">
+              01
+            </span>
+
+            <span class="menu-service">
+
+              <span class="service-name">
+                IN/OUT [BRONZE]
+              </span>
+
+              <span class="service-tier">
+                Essential finish
+              </span>
+
+            </span>
+
+            <span class="menu-arrow">
+              ›
+            </span>
+
+          </button>
+
+
+          <!-- 02 -->
+
+          <button
+            class="menu-option"
+            type="button"
+
+            data-package="PARTIAL SHAMPOO [SILVER]"
+            data-number="02"
+
+            data-image="assets/silver.jpg"
+
+            data-alt="Partial Shampoo Silver detailing package"
+
+            aria-pressed="false"
+          >
+
+            <span class="menu-number">
+              02
+            </span>
+
+            <span class="menu-service">
+
+              <span class="service-name">
+                PARTIAL SHAMPOO [SILVER]
+              </span>
+
+              <span class="service-tier">
+                Enhanced finish
+              </span>
+
+            </span>
+
+            <span class="menu-arrow">
+              ›
+            </span>
+
+          </button>
+
+
+          <!-- 03 -->
+
+          <button
+            class="menu-option"
+            type="button"
+
+            data-package="FULL SHAMPOO [PRESIDENTIAL]"
+            data-number="03"
+
+            data-image="assets/presidential.jpg"
+
+            data-alt="Full Shampoo Presidential detailing package"
+
+            aria-pressed="false"
+          >
+
+            <span class="menu-number">
+              03
+            </span>
+
+            <span class="menu-service">
+
+              <span class="service-name">
+                FULL SHAMPOO [PRESIDENTIAL]
+              </span>
+
+              <span class="service-tier">
+                Luxury finish
+              </span>
+
+            </span>
+
+            <span class="menu-arrow">
+              ›
+            </span>
+
+          </button>
+
+
+        </div>
+
+
+        <!-- CURRENTLY SELECTED -->
+
+        <div class="current-selection">
+
+          <div class="current-label">
+            Currently Selected
+          </div>
+
+          <div
+            id="selected-name"
+            class="current-value"
+          >
+            IN/OUT [BRONZE]
+          </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="menu-footer">
+
+          <span>
+            2GOSPOTLESS
+          </span>
+
+          <span>
+            PREMIUM MOBILE DETAILING
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </section>
+
 </main>
 
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-const image = document.getElementById("package-image");
-const selectedName = document.getElementById("selected-name");
-const selectedNumber = document.getElementById("selected-number");
-const packageOptions = document.querySelectorAll(".package-option");
 
-function selectPackage(option) {
-const packageName = option.dataset.package;
-const packageNumber = option.dataset.number;
-const imagePath = option.dataset.image;
-const imageAlt = option.dataset.alt;
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
-packageOptions.forEach((item) => {
-const isSelected = item === option;
-item.classList.toggle("is-active", isSelected);
-item.setAttribute("aria-pressed", String(isSelected));
-});
 
-selectedName.textContent = packageName;
-selectedNumber.textContent = packageNumber;
+    const image =
+      document.getElementById(
+        "package-image"
+      );
 
-image.classList.add("is-changing");
 
-window.setTimeout(() => {
-image.src = imagePath;
-image.alt = imageAlt;
+    const selectedName =
+      document.getElementById(
+        "selected-name"
+      );
 
-image.addEventListener(
-"load",
-() => {
-image.classList.remove("is-changing");
-},
-{ once: true }
+
+    const packageOptions =
+      document.querySelectorAll(
+        ".menu-option"
+      );
+
+
+    function selectPackage(option) {
+
+
+      const packageName =
+        option.dataset.package;
+
+
+      const packageNumber =
+        option.dataset.number;
+
+
+      const imagePath =
+        option.dataset.image;
+
+
+      const imageAlt =
+        option.dataset.alt;
+
+
+      /*
+       * Update selected menu item
+       */
+
+      packageOptions.forEach(
+        (item) => {
+
+          const isSelected =
+            item === option;
+
+
+          item.classList.toggle(
+            "is-active",
+            isSelected
+          );
+
+
+          item.setAttribute(
+            "aria-pressed",
+            String(isSelected)
+          );
+
+        }
+      );
+
+
+      /*
+       * Update current selection
+       */
+
+      selectedName.textContent =
+        packageName;
+
+
+      /*
+       * Fade image out
+       */
+
+      image.classList.add(
+        "is-changing"
+      );
+
+
+      /*
+       * Change image after
+       * short animation
+       */
+
+      window.setTimeout(
+        () => {
+
+          image.src =
+            imagePath;
+
+          image.alt =
+            imageAlt;
+
+
+          /*
+           * Fade image back in
+           */
+
+          const showImage =
+            () => {
+
+              image.classList.remove(
+                "is-changing"
+              );
+
+            };
+
+
+          image.addEventListener(
+            "load",
+            showImage,
+            {
+              once: true
+            }
+          );
+
+
+          /*
+           * Prevent image staying
+           * invisible if cached
+           */
+
+          if (image.complete) {
+
+            image.classList.remove(
+              "is-changing"
+            );
+
+          }
+
+        },
+        180
+      );
+
+    }
+
+
+    /*
+     * Click controls
+     */
+
+    packageOptions.forEach(
+      (option) => {
+
+
+        option.addEventListener(
+          "click",
+          () => {
+
+            selectPackage(
+              option
+            );
+
+          }
+        );
+
+
+        /*
+         * Keyboard controls
+         */
+
+        option.addEventListener(
+          "keydown",
+          (event) => {
+
+
+            if (
+              event.key === "Enter" ||
+              event.key === " "
+            ) {
+
+              event.preventDefault();
+
+
+              selectPackage(
+                option
+              );
+
+            }
+
+
+            /*
+             * Arrow navigation
+             */
+
+            if (
+              event.key === "ArrowDown" ||
+              event.key === "ArrowRight"
+            ) {
+
+              event.preventDefault();
+
+
+              const currentIndex =
+                Array.from(
+                  packageOptions
+                ).indexOf(option);
+
+
+              const nextIndex =
+                (currentIndex + 1) %
+                packageOptions.length;
+
+
+              packageOptions[
+                nextIndex
+              ].focus();
+
+
+              selectPackage(
+                packageOptions[
+                  nextIndex
+                ]
+              );
+
+            }
+
+
+            if (
+              event.key === "ArrowUp" ||
+              event.key === "ArrowLeft"
+            ) {
+
+              event.preventDefault();
+
+
+              const currentIndex =
+                Array.from(
+                  packageOptions
+                ).indexOf(option);
+
+
+              const previousIndex =
+                (
+                  currentIndex -
+                  1 +
+                  packageOptions.length
+                ) %
+                packageOptions.length;
+
+
+              packageOptions[
+                previousIndex
+              ].focus();
+
+
+              selectPackage(
+                packageOptions[
+                  previousIndex
+                ]
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  }
 );
 
-if (image.complete) {
-image.classList.remove("is-changing");
-}
-}, 180);
-}
-
-packageOptions.forEach((option) => {
-option.addEventListener("click", () => selectPackage(option));
-option.addEventListener("keydown", (event) => {
-if (event.key === "Enter" || event.key === " ") {
-event.preventDefault();
-selectPackage(option);
-}
-});
-});
-});
 </script>
+
+
 </body>
 </html>
