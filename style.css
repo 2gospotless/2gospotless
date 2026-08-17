@@ -1756,3 +1756,215 @@ footer {
   }
 
 }
+
+/* =====================================================
+   WORK PHOTO LIGHTBOX
+   Does NOT affect the existing gallery layout
+===================================================== */
+
+.work-lightbox {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.work-lightbox.active {
+  display: flex;
+}
+
+
+/* Large image */
+
+.work-lightbox-image {
+  max-width: 90vw;
+  max-height: 88vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,0.65);
+
+  user-select: none;
+}
+
+
+/* X close button */
+
+.work-lightbox-close {
+  position: fixed;
+
+  top: 25px;
+  right: 30px;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.55);
+
+  color: white;
+
+  font-size: 28px;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  z-index: 10001;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.work-lightbox-close:hover {
+  background: var(--yellow);
+  color: #000;
+
+  transform: rotate(90deg);
+}
+
+
+/* Left / Right arrows */
+
+.work-lightbox-arrow {
+  position: fixed;
+
+  top: 50%;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.55);
+
+  color: white;
+
+  font-size: 30px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 10001;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.work-lightbox-arrow:hover {
+  background: var(--yellow);
+  color: #000;
+}
+
+.work-lightbox-prev {
+  left: 30px;
+}
+
+.work-lightbox-next {
+  right: 30px;
+}
+
+.work-lightbox-prev:hover {
+  transform: translateY(-50%) translateX(-3px);
+}
+
+.work-lightbox-next:hover {
+  transform: translateY(-50%) translateX(3px);
+}
+
+
+/* Photo counter */
+
+.work-lightbox-counter {
+  position: fixed;
+
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: rgba(255,255,255,0.65);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  z-index: 10001;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .work-lightbox {
+    padding: 15px;
+  }
+
+  .work-lightbox-image {
+    max-width: 94vw;
+    max-height: 78vh;
+
+    border-radius: 8px;
+  }
+
+  .work-lightbox-close {
+    top: 18px;
+    right: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 24px;
+  }
+
+  .work-lightbox-arrow {
+    width: 42px;
+    height: 42px;
+
+    font-size: 24px;
+  }
+
+  .work-lightbox-prev {
+    left: 12px;
+  }
+
+  .work-lightbox-next {
+    right: 12px;
+  }
+
+}
