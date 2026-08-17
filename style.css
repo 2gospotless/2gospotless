@@ -1653,43 +1653,106 @@ footer {
   }
 
 }
+/* =====================================================
+   INSTAGRAM — VIEW MORE
+===================================================== */
+
 .instagram-link {
-  display: inline-flex !important;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   gap: 10px;
 
   width: fit-content !important;
-  height: auto !important;
-  min-height: 0 !important;
 
-  margin: 25px auto 0;
-  padding: 10px 18px;
+  margin: 28px auto 0;
+  padding: 11px 20px;
 
-  border: 1px solid #f5c400;
+  border: 1px solid var(--yellow);
+  border-radius: 6px;
+
   background: transparent;
 
-  color: #f5c400;
+  color: var(--yellow);
   text-decoration: none;
 
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 
-  transition: 0.3s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .instagram-link span {
-  opacity: 0.6;
-  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
 }
 
 .instagram-link:hover {
-  background: #f5c400;
+  background: var(--yellow);
   color: #000;
-  transform: translateY(-2px);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 25px rgba(255,194,26,0.18);
 }
 
 .instagram-link:hover span {
-  opacity: 1;
+  color: #000;
+}
+
+
+/* =====================================================
+   DESKTOP — OUR WORK GALLERY
+===================================================== */
+
+@media (min-width: 901px) {
+
+  #work .gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  #work .gallery img {
+    height: 300px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE — OUR WORK
+===================================================== */
+
+@media (max-width: 900px) {
+
+  #work .gallery {
+    width: 100%;
+  }
+
+  .instagram-link {
+    margin-top: 22px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  #work .gallery img {
+    height: 300px;
+  }
+
+  .instagram-link {
+    width: auto !important;
+    max-width: 100%;
+  }
+
 }
