@@ -1653,3 +1653,32 @@ footer {
   }
 
 }
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+  padding: 10px 18px;
+  border: 1px solid #f5c400;
+  color: #f5c400;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.instagram-link span {
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.instagram-link:hover {
+  background: #f5c400;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.instagram-link:hover span {
+  opacity: 1;
+}
