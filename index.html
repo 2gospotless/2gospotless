@@ -1601,5 +1601,239 @@
 
   <script src="script.js"></script>
 
+      <!-- your footer stuff -->
+
+
+    <!-- =====================================================
+         WORK PHOTO LIGHTBOX
+    ===================================================== -->
+
+    <div
+      class="work-lightbox"
+      id="workLightbox"
+      aria-hidden="true"
+    >
+
+      <button
+        class="work-lightbox-close"
+        id="workLightboxClose"
+        aria-label="Close photo"
+      >
+        &times;
+      </button>
+
+      <button
+        class="work-lightbox-arrow work-lightbox-prev"
+        id="workLightboxPrev"
+        aria-label="Previous photo"
+      >
+        &#10094;
+      </button>
+
+      <img
+        class="work-lightbox-image"
+        id="workLightboxImage"
+        src=""
+        alt="2GoSpotless detailing"
+      >
+
+      <button
+        class="work-lightbox-arrow work-lightbox-next"
+        id="workLightboxNext"
+        aria-label="Next photo"
+      >
+        &#10095;
+      </button>
+
+      <div
+        class="work-lightbox-counter"
+        id="workLightboxCounter"
+      >
+        1 / 6
+      </div>
+
+    </div>
+
+
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const galleryImages =
+        document.querySelectorAll("#work .gallery img");
+
+      const lightbox =
+        document.getElementById("workLightbox");
+
+      const lightboxImage =
+        document.getElementById("workLightboxImage");
+
+      const closeButton =
+        document.getElementById("workLightboxClose");
+
+      const previousButton =
+        document.getElementById("workLightboxPrev");
+
+      const nextButton =
+        document.getElementById("workLightboxNext");
+
+      const counter =
+        document.getElementById("workLightboxCounter");
+
+
+      let currentIndex = 0;
+
+
+      function openLightbox(index) {
+
+        currentIndex = index;
+
+        updateLightbox();
+
+        lightbox.classList.add("active");
+
+        lightbox.setAttribute("aria-hidden", "false");
+
+        document.body.style.overflow = "hidden";
+
+      }
+
+
+      function updateLightbox() {
+
+        const image =
+          galleryImages[currentIndex];
+
+        lightboxImage.src = image.src;
+
+        lightboxImage.alt = image.alt;
+
+        counter.textContent =
+          (currentIndex + 1) +
+          " / " +
+          galleryImages.length;
+
+      }
+
+
+      function closeLightbox() {
+
+        lightbox.classList.remove("active");
+
+        lightbox.setAttribute("aria-hidden", "true");
+
+        document.body.style.overflow = "";
+
+        lightboxImage.src = "";
+
+      }
+
+
+      function showPrevious() {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+
+          currentIndex =
+            galleryImages.length - 1;
+
+        }
+
+        updateLightbox();
+
+      }
+
+
+      function showNext() {
+
+        currentIndex++;
+
+        if (currentIndex >= galleryImages.length) {
+
+          currentIndex = 0;
+
+        }
+
+        updateLightbox();
+
+      }
+
+
+      galleryImages.forEach(function (image, index) {
+
+        image.style.cursor = "pointer";
+
+        image.addEventListener("click", function () {
+
+          openLightbox(index);
+
+        });
+
+      });
+
+
+      closeButton.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+
+      previousButton.addEventListener(
+        "click",
+        showPrevious
+      );
+
+
+      nextButton.addEventListener(
+        "click",
+        showNext
+      );
+
+
+      lightbox.addEventListener(
+        "click",
+        function (event) {
+
+          if (event.target === lightbox) {
+
+            closeLightbox();
+
+          }
+
+        }
+      );
+
+
+      document.addEventListener(
+        "keydown",
+        function (event) {
+
+          if (!lightbox.classList.contains("active")) {
+            return;
+          }
+
+          if (event.key === "Escape") {
+            closeLightbox();
+          }
+
+          if (event.key === "ArrowLeft") {
+            showPrevious();
+          }
+
+          if (event.key === "ArrowRight") {
+            showNext();
+          }
+
+        }
+      );
+
+    });
+
+    </script>
+
+
+  </body>
+</html>
 </body>
 </html>
