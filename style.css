@@ -1968,3 +1968,60 @@ footer {
   }
 
 }
+/* =====================================================
+   DESKTOP ONLY — GARAGE HERO BACKGROUND
+===================================================== */
+
+@media (min-width: 901px) {
+
+  .hero {
+    position: relative;
+
+    background-image: url("assets/detail%20garage.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+  /* DARK TINT OVER IMAGE */
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.42);
+
+    z-index: 1;
+  }
+
+
+  /* KEEP TEXT ABOVE DARK TINT */
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  /* SHADOW BEHIND MAIN HEADLINE */
+
+  .hero h1,
+  .hero h1 span {
+    text-shadow:
+      0 3px 8px rgba(0, 0, 0, 0.95),
+      0 6px 20px rgba(0, 0, 0, 0.75);
+  }
+
+
+  /* SHADOW BEHIND SMALL TEXT */
+
+  .hero-description,
+  .hero .small-title {
+    text-shadow:
+      0 2px 5px rgba(0, 0, 0, 1),
+      0 4px 12px rgba(0, 0, 0, 0.75);
+  }
+
+}
