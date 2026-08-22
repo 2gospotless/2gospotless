@@ -1969,7 +1969,13 @@ footer {
 
 }
 /* =====================================================
-   DESKTOP ONLY — GARAGE HERO BACKGROUND
+   HERO GARAGE BACKGROUNDS
+   Desktop + Mobile
+===================================================== */
+
+
+/* =====================================================
+   DESKTOP
 ===================================================== */
 
 @media (min-width: 901px) {
@@ -1984,9 +1990,6 @@ footer {
     background-repeat: no-repeat;
   }
 
-
-  /* DARK TINT OVER IMAGE */
-
   .hero-overlay {
     position: absolute;
     inset: 0;
@@ -1996,16 +1999,10 @@ footer {
     z-index: 1;
   }
 
-
-  /* KEEP TEXT ABOVE DARK TINT */
-
   .hero-content {
     position: relative;
     z-index: 2;
   }
-
-
-  /* SHADOW BEHIND MAIN HEADLINE */
 
   .hero h1,
   .hero h1 span {
@@ -2014,14 +2011,74 @@ footer {
       0 6px 20px rgba(0, 0, 0, 0.75);
   }
 
-
-  /* SHADOW BEHIND SMALL TEXT */
-
   .hero-description,
   .hero .small-title {
     text-shadow:
       0 2px 5px rgba(0, 0, 0, 1),
       0 4px 12px rgba(0, 0, 0, 0.75);
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE + TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .hero {
+    position: relative;
+
+    background-image: url("assets/mobilegarage.jpg");
+
+    background-size: cover;
+
+    /* Adjust this if you want to move the image up/down */
+    background-position: center center;
+
+    background-repeat: no-repeat;
+  }
+
+
+  /* DARK TINT */
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    /*
+       Increase to 0.60 if text is hard to read.
+       Decrease to 0.35 if you want the garage brighter.
+    */
+    background: rgba(0, 0, 0, 0.48);
+
+    z-index: 1;
+  }
+
+
+  /* KEEP TEXT ABOVE IMAGE */
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  /* TEXT SHADOW */
+
+  .hero h1,
+  .hero h1 span {
+    text-shadow:
+      0 3px 8px rgba(0, 0, 0, 1),
+      0 6px 18px rgba(0, 0, 0, 0.85);
+  }
+
+  .hero-description,
+  .hero .small-title {
+    text-shadow:
+      0 2px 5px rgba(0, 0, 0, 1),
+      0 4px 12px rgba(0, 0, 0, 0.9);
   }
 
 }
