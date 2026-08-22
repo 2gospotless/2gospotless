@@ -1968,3 +1968,248 @@ footer {
   }
 
 }
+/* =====================================================
+   GTA GARAGE GIF — HERO
+===================================================== */
+
+.hero-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.75fr);
+  align-items: center;
+  gap: 55px;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-gif {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-gif-frame {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #050505;
+
+  border: 1px solid rgba(255, 212, 0, 0.55);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 25px 60px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(255, 212, 0, 0.08);
+}
+
+/* GIF */
+
+.hero-gif-frame img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.88;
+
+  filter:
+    contrast(1.05)
+    brightness(0.82);
+}
+
+
+/* Dark cinematic overlay */
+
+.hero-gif-frame::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.30),
+      transparent 45%,
+      rgba(0, 0, 0, 0.20)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.55),
+      transparent 40%
+    );
+}
+
+
+/* Yellow GTA corner */
+
+.hero-gif-corner {
+  position: absolute;
+
+  width: 45px;
+  height: 45px;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+.hero-gif-corner.top-left {
+  top: 12px;
+  left: 12px;
+
+  border-top: 2px solid #ffd400;
+  border-left: 2px solid #ffd400;
+}
+
+.hero-gif-corner.bottom-right {
+  right: 12px;
+  bottom: 12px;
+
+  border-right: 2px solid #ffd400;
+  border-bottom: 2px solid #ffd400;
+}
+
+
+/* Bottom label */
+
+.hero-gif-label {
+  position: absolute;
+
+  left: 20px;
+  bottom: 18px;
+
+  z-index: 6;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 0.62rem;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.hero-gif-label span {
+  color: #ffd400;
+
+  margin-right: 8px;
+}
+
+
+/* Online indicator */
+
+.hero-gif-status {
+  position: absolute;
+
+  right: 20px;
+  bottom: 18px;
+
+  z-index: 6;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 0.48rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.hero-gif-status span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #ffd400;
+
+  box-shadow:
+    0 0 8px rgba(255, 212, 0, 0.8);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .hero-content {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    text-align: center;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-gif {
+    width: 100%;
+  }
+
+  .hero-gif-frame {
+    max-width: 620px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 560px) {
+
+  .hero-content {
+    gap: 30px;
+  }
+
+  .hero-gif-frame {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+
+  .hero-gif-label {
+    left: 13px;
+    bottom: 13px;
+
+    font-size: 0.48rem;
+  }
+
+  .hero-gif-status {
+    right: 13px;
+    bottom: 13px;
+
+    font-size: 0.4rem;
+  }
+
+  .hero-gif-corner {
+    width: 30px;
+    height: 30px;
+  }
+
+}
