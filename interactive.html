@@ -36,6 +36,11 @@ html {
   background: var(--black);
 }
 
+
+/* =========================================================
+   DESKTOP BACKGROUND
+========================================================= */
+
 body {
   min-height: 100vh;
   color: #fff;
@@ -50,10 +55,11 @@ body {
       rgba(0, 0, 0, 0.57),
       rgba(0, 0, 0, 0.57)
     ),
-    url("assets/garage.jpg");
+    url("assets/detail%20garage.jpg");
 
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 
   overflow-x: hidden;
@@ -62,7 +68,7 @@ body {
 
 /* =========================================================
    HEADER
-   ========================================================= */
+========================================================= */
 
 .site-header {
   position: relative;
@@ -140,7 +146,7 @@ body {
 
 /* =========================================================
    MAIN
-   ========================================================= */
+========================================================= */
 
 main {
   width: min(1250px, calc(100% - 40px));
@@ -194,15 +200,17 @@ h1 {
   letter-spacing: 0.3em;
 
   text-transform: uppercase;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 
 /* =========================================================
    MAIN GARAGE AREA
-   ========================================================= */
+========================================================= */
 
 .garage-layout {
-
   display: grid;
 
   grid-template-columns:
@@ -219,10 +227,9 @@ h1 {
 
 /* =========================================================
    IMAGE
-   ========================================================= */
+========================================================= */
 
 .image-panel {
-
   position: relative;
 
   display: flex;
@@ -248,7 +255,6 @@ h1 {
 
 .image-panel::before,
 .image-panel::after {
-
   position: absolute;
 
   width: 54px;
@@ -260,7 +266,6 @@ h1 {
 }
 
 .image-panel::before {
-
   top: 11px;
   left: 11px;
 
@@ -272,7 +277,6 @@ h1 {
 }
 
 .image-panel::after {
-
   right: 11px;
   bottom: 11px;
 
@@ -284,7 +288,6 @@ h1 {
 }
 
 .package-image {
-
   display: block;
 
   width: 100%;
@@ -305,7 +308,6 @@ h1 {
 }
 
 .image-label {
-
   position: absolute;
 
   right: 28px;
@@ -324,10 +326,9 @@ h1 {
 
 /* =========================================================
    GTA STYLE MENU
-   ========================================================= */
+========================================================= */
 
 .menu-area {
-
   display: flex;
 
   align-items: center;
@@ -337,7 +338,6 @@ h1 {
 }
 
 .gta-menu {
-
   position: relative;
 
   width: 100%;
@@ -360,7 +360,6 @@ h1 {
 }
 
 .gta-menu::before {
-
   position: absolute;
 
   top: 0;
@@ -378,10 +377,9 @@ h1 {
 
 /* =========================================================
    MENU HEADER
-   ========================================================= */
+========================================================= */
 
 .menu-header {
-
   position: relative;
 
   min-height: 86px;
@@ -397,7 +395,6 @@ h1 {
 }
 
 .menu-logo {
-
   position: absolute;
 
   left: 20px;
@@ -419,7 +416,6 @@ h1 {
 }
 
 .menu-title {
-
   color: #fff;
 
   font-size: 0.95rem;
@@ -432,7 +428,6 @@ h1 {
 }
 
 .menu-subtitle {
-
   margin-top: 6px;
 
   color:
@@ -450,15 +445,13 @@ h1 {
 
 /* =========================================================
    MENU OPTIONS
-   ========================================================= */
+========================================================= */
 
 .menu-options {
-
   padding: 10px 0;
 }
 
 .menu-option {
-
   position: relative;
 
   display: grid;
@@ -502,7 +495,6 @@ h1 {
 }
 
 .menu-number {
-
   display: flex;
 
   align-items: center;
@@ -521,7 +513,6 @@ h1 {
 }
 
 .menu-service {
-
   display: flex;
 
   flex-direction: column;
@@ -534,7 +525,6 @@ h1 {
 }
 
 .service-name {
-
   color: inherit;
 
   font-size:
@@ -550,7 +540,6 @@ h1 {
 }
 
 .service-tier {
-
   color:
     rgba(255, 255, 255, 0.35);
 
@@ -564,7 +553,6 @@ h1 {
 }
 
 .menu-arrow {
-
   color:
     rgba(255, 255, 255, 0.25);
 
@@ -580,10 +568,9 @@ h1 {
 
 /* =========================================================
    HOVER
-   ========================================================= */
+========================================================= */
 
 .menu-option:hover {
-
   color: #fff;
 
   background:
@@ -593,7 +580,6 @@ h1 {
 }
 
 .menu-option:hover .menu-arrow {
-
   color: var(--yellow);
 
   transform: translateX(3px);
@@ -602,10 +588,9 @@ h1 {
 
 /* =========================================================
    ACTIVE GTA STYLE
-   ========================================================= */
+========================================================= */
 
 .menu-option.is-active {
-
   color: #111;
 
   background:
@@ -618,19 +603,16 @@ h1 {
 }
 
 .menu-option.is-active .menu-number {
-
   color:
     rgba(0, 0, 0, 0.55);
 }
 
 .menu-option.is-active .service-tier {
-
   color:
     rgba(0, 0, 0, 0.55);
 }
 
 .menu-option.is-active .menu-arrow {
-
   color: #111;
 
   transform:
@@ -640,10 +622,9 @@ h1 {
 
 /* =========================================================
    CURRENTLY SELECTED
-   ========================================================= */
+========================================================= */
 
 .current-selection {
-
   display: flex;
 
   align-items: center;
@@ -662,18 +643,13 @@ h1 {
     rgba(0, 0, 0, 0.35);
 }
 
-
-/* LEFT SIDE OF CURRENT SELECTION */
-
 .current-selection-text {
-
   min-width: 0;
 
   flex: 1;
 }
 
 .current-label {
-
   color:
     rgba(255, 255, 255, 0.38);
 
@@ -687,7 +663,6 @@ h1 {
 }
 
 .current-value {
-
   margin-top: 7px;
 
   color: var(--yellow);
@@ -706,10 +681,9 @@ h1 {
 
 /* =========================================================
    BLUEPRINT IMAGE
-   ========================================================= */
+========================================================= */
 
 .blueprint-preview {
-
   flex: 0 0 auto;
 
   display: flex;
@@ -739,7 +713,6 @@ h1 {
 }
 
 .blueprint-preview.is-changing {
-
   opacity: 0;
 
   transform:
@@ -747,7 +720,6 @@ h1 {
 }
 
 .blueprint-preview img {
-
   display: block;
 
   width: 100%;
@@ -765,10 +737,9 @@ h1 {
 
 /* =========================================================
    MENU FOOTER
-   ========================================================= */
+========================================================= */
 
 .menu-footer {
-
   display: flex;
 
   align-items: center;
@@ -794,20 +765,36 @@ h1 {
 }
 
 .menu-footer span:last-child {
-
   color:
     rgba(255, 212, 0, 0.48);
 }
 
 
 /* =========================================================
-   TABLET
-   ========================================================= */
+   TABLET + MOBILE
+
+   Switches to mobilegarage.jpg
+========================================================= */
 
 @media (max-width: 900px) {
 
-  main {
+  body {
+    background:
+      linear-gradient(
+        rgba(0, 0, 0, 0.57),
+        rgba(0, 0, 0, 0.57)
+      ),
+      url("assets/mobilegarage.jpg");
 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Better compatibility on mobile browsers */
+    background-attachment: scroll;
+  }
+
+  main {
     width:
       min(700px, calc(100% - 32px));
 
@@ -815,24 +802,20 @@ h1 {
   }
 
   .garage-layout {
-
     grid-template-columns: 1fr;
 
     gap: 26px;
   }
 
   .image-panel {
-
     min-height: 430px;
   }
 
   .package-image {
-
     height: 390px;
   }
 
   .gta-menu {
-
     max-width: 600px;
   }
 }
@@ -840,12 +823,11 @@ h1 {
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 560px) {
 
   .site-header {
-
     min-height: 76px;
 
     padding:
@@ -853,14 +835,12 @@ h1 {
   }
 
   .logo {
-
     height: 43px;
 
     max-width: 145px;
   }
 
   .back-link {
-
     left: 10px;
 
     min-height: 32px;
@@ -874,7 +854,6 @@ h1 {
   }
 
   main {
-
     width:
       calc(100% - 22px);
 
@@ -883,12 +862,10 @@ h1 {
   }
 
   .page-heading {
-
     margin-bottom: 22px;
   }
 
   h1 {
-
     font-size:
       clamp(1.55rem, 8vw, 2.3rem);
 
@@ -896,7 +873,6 @@ h1 {
   }
 
   .subtitle {
-
     margin-top: 10px;
 
     font-size: 0.58rem;
@@ -905,19 +881,16 @@ h1 {
   }
 
   .image-panel {
-
     min-height: 285px;
 
     padding: 12px;
   }
 
   .package-image {
-
     height: 255px;
   }
 
   .image-label {
-
     right: 17px;
     bottom: 14px;
 
@@ -925,12 +898,10 @@ h1 {
   }
 
   .gta-menu {
-
     width: 100%;
   }
 
   .menu-header {
-
     min-height: 76px;
 
     padding:
@@ -938,7 +909,6 @@ h1 {
   }
 
   .menu-logo {
-
     left: 16px;
 
     width: 43px;
@@ -946,21 +916,18 @@ h1 {
   }
 
   .menu-title {
-
     font-size: 0.75rem;
 
     letter-spacing: 0.13em;
   }
 
   .menu-subtitle {
-
     font-size: 0.48rem;
 
     letter-spacing: 0.13em;
   }
 
   .menu-option {
-
     grid-template-columns:
       49px
       1fr
@@ -972,29 +939,22 @@ h1 {
   }
 
   .menu-number {
-
     font-size: 0.59rem;
   }
 
   .service-name {
-
     font-size: 0.69rem;
 
     letter-spacing: 0.07em;
   }
 
   .service-tier {
-
     font-size: 0.46rem;
 
     letter-spacing: 0.09em;
   }
 
-
-  /* CURRENTLY SELECTED MOBILE */
-
   .current-selection {
-
     padding:
       13px 14px 14px;
 
@@ -1002,14 +962,12 @@ h1 {
   }
 
   .current-label {
-
     font-size: 0.46rem;
 
     letter-spacing: 0.14em;
   }
 
   .current-value {
-
     margin-top: 6px;
 
     font-size: 0.61rem;
@@ -1019,11 +977,7 @@ h1 {
     line-height: 1.2;
   }
 
-
-  /* SMALL BLUEPRINT ON MOBILE */
-
   .blueprint-preview {
-
     width: 68px;
 
     height: 51px;
@@ -1031,9 +985,7 @@ h1 {
     padding: 2px;
   }
 
-
   .menu-footer {
-
     padding:
       10px 14px;
 
@@ -1044,12 +996,11 @@ h1 {
 
 /* =========================================================
    VERY SMALL PHONES
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 380px) {
 
   .current-selection {
-
     gap: 7px;
 
     padding-left: 12px;
@@ -1057,30 +1008,26 @@ h1 {
   }
 
   .blueprint-preview {
-
     width: 60px;
 
     height: 46px;
   }
 
   .current-value {
-
     font-size: 0.56rem;
   }
-
 }
 
 
 /* =========================================================
    REDUCED MOTION
-   ========================================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
   *,
   *::before,
   *::after {
-
     transition-duration:
       0.01ms !important;
   }
@@ -1096,7 +1043,7 @@ h1 {
 
 <!-- =====================================================
      HEADER
-     ===================================================== -->
+===================================================== -->
 
 <header class="site-header">
 
@@ -1126,7 +1073,7 @@ h1 {
 
 <!-- =====================================================
      MAIN
-     ===================================================== -->
+===================================================== -->
 
 <main>
 
@@ -1152,7 +1099,7 @@ h1 {
 
   <!-- ===================================================
        GARAGE
-       =================================================== -->
+  =================================================== -->
 
   <section
     class="garage-layout"
@@ -1160,9 +1107,7 @@ h1 {
   >
 
 
-    <!-- =================================================
-         CAR IMAGE
-         ================================================= -->
+    <!-- CAR IMAGE -->
 
     <div class="image-panel">
 
@@ -1180,9 +1125,7 @@ h1 {
     </div>
 
 
-    <!-- =================================================
-         GTA STYLE MENU
-         ================================================= -->
+    <!-- GTA STYLE MENU -->
 
     <div class="menu-area">
 
@@ -1214,28 +1157,21 @@ h1 {
         </div>
 
 
-        <!-- =================================================
-             MENU OPTIONS
-             ================================================= -->
+        <!-- MENU OPTIONS -->
 
         <div class="menu-options">
 
 
-          <!-- 01 — BRONZE -->
+          <!-- 01 BRONZE -->
 
           <button
             class="menu-option is-active"
             type="button"
-
             data-package="IN/OUT [BRONZE]"
             data-number="01"
-
             data-image="assets/bronze.jpg"
-
             data-blueprint="assets/INOUTBLUEPRINT.png"
-
             data-alt="In and Out Bronze detailing package"
-
             aria-pressed="true"
           >
 
@@ -1262,21 +1198,16 @@ h1 {
           </button>
 
 
-          <!-- 02 — SILVER -->
+          <!-- 02 SILVER -->
 
           <button
             class="menu-option"
             type="button"
-
             data-package="PARTIAL SHAMPOO [SILVER]"
             data-number="02"
-
             data-image="assets/silver.jpg"
-
             data-blueprint="assets/PARTIALBLUEPRINT.png"
-
             data-alt="Partial Shampoo Silver detailing package"
-
             aria-pressed="false"
           >
 
@@ -1303,21 +1234,16 @@ h1 {
           </button>
 
 
-          <!-- 03 — PRESIDENTIAL -->
+          <!-- 03 PRESIDENTIAL -->
 
           <button
             class="menu-option"
             type="button"
-
             data-package="FULL SHAMPOO [PRESIDENTIAL]"
             data-number="03"
-
             data-image="assets/presidential.jpg"
-
             data-blueprint="assets/FULLBLUEPRINT.png"
-
             data-alt="Full Shampoo Presidential detailing package"
-
             aria-pressed="false"
           >
 
@@ -1344,21 +1270,16 @@ h1 {
           </button>
 
 
-          <!-- 04 — ENGINE CLEAN -->
+          <!-- 04 ENGINE CLEAN -->
 
           <button
             class="menu-option"
             type="button"
-
             data-package="ENGINE CLEAN"
             data-number="04"
-
             data-image="assets/engine.png"
-
             data-blueprint=""
-
             data-alt="Engine cleaning service"
-
             aria-pressed="false"
           >
 
@@ -1388,14 +1309,9 @@ h1 {
         </div>
 
 
-        <!-- =================================================
-             CURRENTLY SELECTED
-             ================================================= -->
+        <!-- CURRENTLY SELECTED -->
 
         <div class="current-selection">
-
-
-          <!-- TEXT -->
 
           <div class="current-selection-text">
 
@@ -1413,8 +1329,6 @@ h1 {
           </div>
 
 
-          <!-- BLUEPRINT -->
-
           <div
             id="blueprint-preview"
             class="blueprint-preview"
@@ -1429,13 +1343,10 @@ h1 {
 
           </div>
 
-
         </div>
 
 
-        <!-- =================================================
-             FOOTER
-             ================================================= -->
+        <!-- FOOTER -->
 
         <div class="menu-footer">
 
@@ -1462,7 +1373,7 @@ h1 {
 
 <!-- =====================================================
      JAVASCRIPT
-     ===================================================== -->
+===================================================== -->
 
 <script>
 
@@ -1470,34 +1381,25 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-
-    /* =====================================================
-       ELEMENTS
-       ===================================================== */
-
     const image =
       document.getElementById(
         "package-image"
       );
-
 
     const selectedName =
       document.getElementById(
         "selected-name"
       );
 
-
     const blueprintPreview =
       document.getElementById(
         "blueprint-preview"
       );
 
-
     const blueprintImage =
       document.getElementById(
         "blueprint-image"
       );
-
 
     const packageOptions =
       document.querySelectorAll(
@@ -1507,30 +1409,24 @@ document.addEventListener(
 
     /* =====================================================
        SELECT PACKAGE
-       ===================================================== */
+    ===================================================== */
 
     function selectPackage(option) {
-
 
       const packageName =
         option.dataset.package;
 
-
       const imagePath =
         option.dataset.image;
 
-
       const imageAlt =
         option.dataset.alt;
-
 
       const blueprintPath =
         option.dataset.blueprint;
 
 
-      /* ================================================
-         UPDATE ACTIVE MENU ITEM
-         ================================================ */
+      /* UPDATE ACTIVE MENU */
 
       packageOptions.forEach(
         (item) => {
@@ -1538,12 +1434,10 @@ document.addEventListener(
           const isSelected =
             item === option;
 
-
           item.classList.toggle(
             "is-active",
             isSelected
           );
-
 
           item.setAttribute(
             "aria-pressed",
@@ -1554,22 +1448,17 @@ document.addEventListener(
       );
 
 
-      /* ================================================
-         UPDATE CURRENT SELECTION TEXT
-         ================================================ */
+      /* CURRENT SELECTION TEXT */
 
       selectedName.textContent =
         packageName;
 
 
-      /* ================================================
-         CHANGE MAIN IMAGE
-         ================================================ */
+      /* MAIN IMAGE */
 
       image.classList.add(
         "is-changing"
       );
-
 
       window.setTimeout(
         () => {
@@ -1580,7 +1469,6 @@ document.addEventListener(
           image.alt =
             imageAlt;
 
-
           const showImage =
             () => {
 
@@ -1590,7 +1478,6 @@ document.addEventListener(
 
             };
 
-
           image.addEventListener(
             "load",
             showImage,
@@ -1598,7 +1485,6 @@ document.addEventListener(
               once: true
             }
           );
-
 
           if (image.complete) {
 
@@ -1613,23 +1499,16 @@ document.addEventListener(
       );
 
 
-      /* ================================================
-         CHANGE BLUEPRINT
-         ================================================ */
+      /* BLUEPRINT */
 
       blueprintPreview.classList.add(
         "is-changing"
       );
 
-
       window.setTimeout(
         () => {
 
-
-          /*
-           * ENGINE CLEAN DOES NOT HAVE
-           * A BLUEPRINT IMAGE
-           */
+          /* ENGINE CLEAN HAS NO BLUEPRINT */
 
           if (!blueprintPath) {
 
@@ -1648,25 +1527,12 @@ document.addEventListener(
           }
 
 
-          /*
-           * Show blueprint container
-           */
-
           blueprintPreview.style.display =
             "flex";
-
-
-          /*
-           * Set new blueprint
-           */
 
           blueprintImage.src =
             blueprintPath;
 
-
-          /*
-           * Fade blueprint back in
-           */
 
           const showBlueprint =
             () => {
@@ -1687,10 +1553,6 @@ document.addEventListener(
           );
 
 
-          /*
-           * Cached image fallback
-           */
-
           if (blueprintImage.complete) {
 
             blueprintPreview.classList.remove(
@@ -1708,11 +1570,10 @@ document.addEventListener(
 
     /* =====================================================
        CLICK CONTROLS
-       ===================================================== */
+    ===================================================== */
 
     packageOptions.forEach(
       (option) => {
-
 
         option.addEventListener(
           "click",
@@ -1726,14 +1587,11 @@ document.addEventListener(
         );
 
 
-        /* ================================================
-           KEYBOARD CONTROLS
-           ================================================ */
+        /* KEYBOARD CONTROLS */
 
         option.addEventListener(
           "keydown",
           (event) => {
-
 
             if (
               event.key === "Enter" ||
@@ -1742,7 +1600,6 @@ document.addEventListener(
 
               event.preventDefault();
 
-
               selectPackage(
                 option
               );
@@ -1750,9 +1607,7 @@ document.addEventListener(
             }
 
 
-            /* ============================================
-               ARROW DOWN / RIGHT
-               ============================================ */
+            /* NEXT */
 
             if (
               event.key === "ArrowDown" ||
@@ -1761,22 +1616,18 @@ document.addEventListener(
 
               event.preventDefault();
 
-
               const currentIndex =
                 Array.from(
                   packageOptions
                 ).indexOf(option);
 
-
               const nextIndex =
                 (currentIndex + 1) %
                 packageOptions.length;
 
-
               packageOptions[
                 nextIndex
               ].focus();
-
 
               selectPackage(
                 packageOptions[
@@ -1787,9 +1638,7 @@ document.addEventListener(
             }
 
 
-            /* ============================================
-               ARROW UP / LEFT
-               ============================================ */
+            /* PREVIOUS */
 
             if (
               event.key === "ArrowUp" ||
@@ -1798,12 +1647,10 @@ document.addEventListener(
 
               event.preventDefault();
 
-
               const currentIndex =
                 Array.from(
                   packageOptions
                 ).indexOf(option);
-
 
               const previousIndex =
                 (
@@ -1813,11 +1660,9 @@ document.addEventListener(
                 ) %
                 packageOptions.length;
 
-
               packageOptions[
                 previousIndex
               ].focus();
-
 
               selectPackage(
                 packageOptions[
@@ -1833,7 +1678,6 @@ document.addEventListener(
       }
     );
 
-
   }
 );
 
@@ -1842,5 +1686,4 @@ document.addEventListener(
 
 </body>
 </html>
-
 
