@@ -2197,3 +2197,7 @@ button,
   width: 100%;
   text-align: center;
 }
+/* Add space below the BOOK YOUR DETAIL button */
+.center:has(#setmore-book-your-detail) {
+  margin-bottom: 40px;
+}
