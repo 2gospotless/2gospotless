@@ -2090,3 +2090,16 @@ footer {
 .interactive-mobile-button {
   display: inline-flex !important;
 }
+/* RESTORE ORIGINAL BOOKING BUTTON STYLING */
+button.service-book,
+button.yellow-button {
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button.service-book:hover,
+button.yellow-button:hover {
+  opacity: 1;
+}
