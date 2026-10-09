@@ -2183,3 +2183,17 @@ button,
   margin-left: auto;
   margin-right: auto;
 }
+/* Center the BOOK YOUR DETAIL button */
+#setmore-book-your-detail {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center:has(#setmore-book-your-detail) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
