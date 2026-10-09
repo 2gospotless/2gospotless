@@ -573,61 +573,383 @@
        OUR WORK / PHOTOS
   ====================================================== -->
 
-  <section
-    class="section"
-    id="work"
-  >
+```html
+<!-- 2GOSPOTLESS PHOTO GALLERY -->
+<section class="section g2s-work-section" id="work">
 
-    <div class="gallery">
+  <div class="g2s-gallery-heading">
+    <p class="g2s-gallery-eyebrow">THE 2GOSPOTLESS STANDARD</p>
+    <h2>OUR <span>WORK.</span></h2>
+    <p class="g2s-gallery-subtitle">
+      Every detail matters. Take a look at our work.
+    </p>
+  </div>
 
-      <img
-        src="assets/FF1%20(1).jpg"
-        alt="2GoSpotless detailing"
-      >
+  <div class="g2s-gallery" id="g2sGallery">
 
-      <img
-        src="assets/FF1%20(2).jpg"
-        alt="2GoSpotless detailing"
-      >
-
-      <img
-        src="assets/FF1%20(3).jpg"
-        alt="2GoSpotless detailing"
-      >
-
-      <img
-        src="assets/FF1%20(4).jpg"
-        alt="2GoSpotless detailing"
-      >
-
-      <img
-        src="assets/FF1%20(5).jpg"
-        alt="2GoSpotless detailing"
-      >
-
-      <img
-        src="assets/FF1%20(6).jpg"
-        alt="2GoSpotless detailing"
-      >
-
-    </div>
-
-
-    <a
-      href="https://www.instagram.com/2gospotless/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="instagram-link"
+    <img
+      src="assets/FF1%20(1).jpg"
+      alt="2GoSpotless detailing"
+      draggable="false"
     >
-      VIEW MORE ON INSTAGRAM
 
-      <span>
-        @2gospotless
-      </span>
+    <img
+      src="assets/FF1%20(2).jpg"
+      alt="2GoSpotless detailing"
+      draggable="false"
+    >
 
-    </a>
+    <img
+      src="assets/FF1%20(3).jpg"
+      alt="2GoSpotless detailing"
+      draggable="false"
+    >
 
-  </section>
+    <img
+      src="assets/FF1%20(4).jpg"
+      alt="2GoSpotless detailing"
+      draggable="false"
+    >
+
+    <img
+      src="assets/FF1%20(5).jpg"
+      alt="2GoSpotless detailing"
+      draggable="false"
+    >
+
+    <img
+      src="assets/FF1%20(6).jpg"
+      alt="2GoSpotless detailing"
+      draggable="false"
+    >
+
+  </div>
+
+  <p class="g2s-gallery-hint">DRAG TO EXPLORE &nbsp; ← →</p>
+
+  <a
+    href="https://www.instagram.com/2gospotless/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="instagram-link"
+  >
+    VIEW MORE ON INSTAGRAM
+    <span>@2gospotless</span>
+  </a>
+
+</section>
+
+
+<style>
+/* ==============================
+   2GOSPOTLESS GALLERY
+   ============================== */
+
+.g2s-work-section {
+  background: #080808;
+  color: #ffffff;
+  padding: 85px 0 75px;
+  overflow: hidden;
+}
+
+/* Heading */
+
+.g2s-gallery-heading {
+  text-align: center;
+  padding: 0 20px;
+  margin-bottom: 45px;
+}
+
+.g2s-gallery-eyebrow {
+  color: #f5d000;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin: 0 0 14px;
+}
+
+.g2s-gallery-heading h2 {
+  color: #ffffff;
+  font-size: clamp(38px, 6vw, 66px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin: 0;
+}
+
+.g2s-gallery-heading h2 span {
+  color: #f5d000;
+}
+
+.g2s-gallery-subtitle {
+  color: #a8a8a8;
+  font-size: 14px;
+  margin-top: 18px;
+  letter-spacing: 0.4px;
+}
+
+/* Horizontal draggable gallery */
+
+.g2s-gallery {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 35px max(6vw, 24px) 45px;
+
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.g2s-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.g2s-gallery.g2s-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+/* Individual photos */
+
+.g2s-gallery img {
+  display: block;
+  flex: 0 0 clamp(230px, 29vw, 370px);
+
+  width: clamp(230px, 29vw, 370px);
+  aspect-ratio: 4 / 5;
+  height: auto;
+
+  object-fit: cover;
+  border-radius: 5px;
+
+  scroll-snap-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  -webkit-user-drag: none;
+}
+
+/* A subtle half-circle effect */
+
+.g2s-gallery img:nth-child(6n + 1),
+.g2s-gallery img:nth-child(6n + 6) {
+  transform: translateY(12px) scale(0.97);
+}
+
+.g2s-gallery img:nth-child(6n + 2),
+.g2s-gallery img:nth-child(6n + 5) {
+  transform: translateY(5px);
+}
+
+.g2s-gallery img:nth-child(6n + 3),
+.g2s-gallery img:nth-child(6n + 4) {
+  transform: translateY(0);
+}
+
+/* Hover effect for desktop */
+
+@media (hover: hover) and (pointer: fine) {
+  .g2s-gallery:not(.g2s-dragging) img:hover {
+    transform: translateY(-5px) scale(1.015);
+    border-color: rgba(245, 208, 0, 0.65);
+    box-shadow: 0 16px 40px rgba(245, 208, 0, 0.08);
+  }
+}
+
+/* Drag instruction */
+
+.g2s-gallery-hint {
+  color: #777777;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0 0 30px;
+}
+
+/* Instagram link */
+
+.g2s-work-section .instagram-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+  margin: 0 auto;
+  padding: 15px 26px;
+
+  color: #f5d000;
+  border: 1px solid rgba(245, 208, 0, 0.55);
+  border-radius: 3px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.g2s-work-section .instagram-link span {
+  color: #aaaaaa;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.g2s-work-section .instagram-link:hover {
+  background: #f5d000;
+  color: #080808;
+  border-color: #f5d000;
+}
+
+.g2s-work-section .instagram-link:hover span {
+  color: #080808;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 600px) {
+
+  .g2s-work-section {
+    padding: 65px 0 55px;
+  }
+
+  .g2s-gallery-heading {
+    margin-bottom: 25px;
+  }
+
+  .g2s-gallery-eyebrow {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .g2s-gallery-heading h2 {
+    font-size: 42px;
+  }
+
+  .g2s-gallery-subtitle {
+    font-size: 12px;
+  }
+
+  .g2s-gallery {
+    gap: 14px;
+    padding: 25px 22px 35px;
+  }
+
+  .g2s-gallery img {
+    flex-basis: 76vw;
+    width: 76vw;
+    max-width: 330px;
+    border-radius: 4px;
+  }
+
+  .g2s-gallery img:nth-child(6n + 1),
+  .g2s-gallery img:nth-child(6n + 6) {
+    transform: translateY(8px) scale(0.98);
+  }
+
+  .g2s-gallery img:nth-child(6n + 2),
+  .g2s-gallery img:nth-child(6n + 5) {
+    transform: translateY(3px);
+  }
+
+  .g2s-gallery-hint {
+    font-size: 9px;
+    margin-bottom: 25px;
+  }
+}
+</style>
+
+
+<script>
+(function () {
+  const gallery = document.getElementById("g2sGallery");
+
+  if (!gallery || gallery.dataset.dragReady === "true") {
+    return;
+  }
+
+  gallery.dataset.dragReady = "true";
+
+  let isDragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let hasMoved = false;
+
+  gallery.addEventListener("pointerdown", function (event) {
+    // Use native touch gestures on phones and tablets.
+    if (event.pointerType !== "mouse" || event.button !== 0) {
+      return;
+    }
+
+    isDragging = true;
+    hasMoved = false;
+    startX = event.clientX;
+    startScrollLeft = gallery.scrollLeft;
+
+    gallery.classList.add("g2s-dragging");
+  });
+
+  window.addEventListener("pointermove", function (event) {
+    if (!isDragging) return;
+
+    const distance = event.clientX - startX;
+
+    if (Math.abs(distance) > 4) {
+      hasMoved = true;
+    }
+
+    if (hasMoved) {
+      gallery.scrollLeft = startScrollLeft - distance;
+    }
+  });
+
+  function stopDragging() {
+    if (!isDragging) return;
+
+    isDragging = false;
+    gallery.classList.remove("g2s-dragging");
+  }
+
+  window.addEventListener("pointerup", stopDragging);
+  window.addEventListener("pointercancel", stopDragging);
+  window.addEventListener("blur", stopDragging);
+
+  gallery.addEventListener("click", function (event) {
+    if (hasMoved) {
+      event.preventDefault();
+      event.stopPropagation();
+      hasMoved = false;
+    }
+  }, true);
+})();
+</script>
+```
 
 
 
