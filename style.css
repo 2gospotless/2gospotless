@@ -2171,14 +2171,13 @@ button,
   cursor: pointer;
 }
 
+
+
 <style>
-/* Hide photo gallery arrows on mobile */
-@media (max-width: 767px) {
-  .g2s-work-section .gallery-arrow,
-  .g2s-work-section .g2s-gallery-arrow,
-  .g2s-work-section .gallery-nav,
-  .g2s-work-section .g2s-gallery-nav {
+@media (max-width: 600px) {
+  .g2s-gallery-arrow {
     display: none !important;
   }
 }
 </style>
+
